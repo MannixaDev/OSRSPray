@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OSRS Prayer Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Cinzel:wght@400;700;900&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c8a84b;
+    --gold-light: #f0d078;
+    --gold-dark: #8a6a1a;
+    --brown-dark: #1a1008;
+    --brown-mid: #2e1c08;
+    --brown-panel: #3a2410;
+    --brown-border: #6b4320;
+    --parchment: #e8d5a0;
+    --text-light: #f5e6c0;
+    --text-dim: #b89a60;
+    --melee: #e05030;
+    --magic: #4080e0;
+    --ranged: #50b840;
+    --prayer-glow: #ffe87a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background-color: #0d0a06;
+    background-image:
+      radial-gradient(ellipse at 50% 0%, #2a1a06 0%, transparent 60%),
+      url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c8a84b' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    font-family: 'IM Fell English', serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 16px 60px;
+    color: var(--text-light);
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+
+  .title-icon {
+    font-size: 48px;
+    display: block;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 0 12px #ffe87a88);
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { filter: drop-shadow(0 0 10px #ffe87a66); }
+    50% { filter: drop-shadow(0 0 22px #ffe87acc); }
+  }
+
+  h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.6rem, 5vw, 2.8rem);
+    font-weight: 900;
+    color: var(--gold-light);
+    text-shadow: 0 0 20px #c8a84b88, 0 2px 4px #000;
+    letter-spacing: 0.08em;
+    line-height: 1.1;
+  }
+
+  .subtitle {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-top: 6px;
+    letter-spacing: 0.05em;
+  }
+
+  .divider {
+    width: 320px;
+    max-width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold-dark), var(--gold), var(--gold-dark), transparent);
+    margin: 16px auto;
+    position: relative;
+  }
+
+  .divider::before {
+    content: '⚔';
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background: #0d0a06;
+    padding: 0 10px;
+    color: var(--gold);
+    font-size: 1rem;
+  }
+
+  /* Monster selector */
+  .selector-panel {
+    background: linear-gradient(180deg, var(--brown-mid) 0%, var(--brown-dark) 100%);
+    border: 2px solid var(--brown-border);
+    border-radius: 6px;
+    padding: 20px 24px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 24px #00000088, inset 0 1px 0 #c8a84b44;
+    margin-bottom: 24px;
+  }
+
+  .selector-label {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .search-wrap {
+    position: relative;
+  }
+
+  .search-input {
+    width: 100%;
+    background: var(--brown-panel);
+    border: 1px solid var(--brown-border);
+    border-radius: 4px;
+    color: var(--text-light);
+    font-family: 'IM Fell English', serif;
+    font-size: 1rem;
+    padding: 10px 14px;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .search-input::placeholder { color: var(--text-dim); }
+  .search-input:focus { border-color: var(--gold-dark); }
+
+  .search-dropdown {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0; right: 0;
+    background: var(--brown-mid);
+    border: 1px solid var(--brown-border);
+    border-radius: 4px;
+    max-height: 280px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+    box-shadow: 0 8px 24px #00000099;
+  }
+
+  .search-dropdown.open { display: block; }
+
+  .dropdown-item {
+    padding: 9px 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-light);
+    border-bottom: 1px solid #3a2410;
+    transition: background 0.1s;
+  }
+
+  .dropdown-item:last-child { border-bottom: none; }
+  .dropdown-item:hover, .dropdown-item.focused { background: #5a3015; color: var(--gold-light); }
+
+  .dropdown-item .d-icon { font-size: 1.1rem; width: 24px; text-align: center; }
+  .dropdown-item .d-cat { font-size: 0.65rem; color: var(--text-dim); margin-left: auto; font-family: 'Cinzel', serif; letter-spacing: 0.08em; }
+
+  .dropdown-empty { padding: 14px; color: var(--text-dim); font-style: italic; text-align: center; font-size: 0.88rem; }
+
+  /* Prayer display */
+  .prayer-panel {
+    width: 100%;
+    max-width: 600px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+  }
+
+  .prayer-panel.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+
+  .monster-header {
+    background: linear-gradient(180deg, var(--brown-mid) 0%, var(--brown-dark) 100%);
+    border: 2px solid var(--brown-border);
+    border-bottom: none;
+    border-radius: 6px 6px 0 0;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .monster-big-icon {
+    font-size: 2.8rem;
+    filter: drop-shadow(0 2px 6px #00000088);
+  }
+
+  .monster-title {
+    font-family: 'Cinzel', serif;
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--gold-light);
+    text-shadow: 0 0 10px #c8a84b66;
+  }
+
+  .monster-desc {
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    margin-top: 2px;
+  }
+
+  .attacks-container {
+    background: var(--brown-dark);
+    border: 2px solid var(--brown-border);
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+  }
+
+  .attack-row {
+    display: flex;
+    align-items: stretch;
+    border-bottom: 1px solid #3a2410;
+    transition: background 0.15s;
+  }
+
+  .attack-row:last-child { border-bottom: none; }
+  .attack-row:hover { background: #2a1808; }
+
+  .attack-type-badge {
+    width: 90px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 8px;
+    gap: 4px;
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .attack-type-badge .atk-icon { font-size: 1.6rem; }
+
+  .badge-melee { background: linear-gradient(180deg, #3d1408 0%, #250d05 100%); color: #ff9070; border-right: 2px solid #8b2010; }
+  .badge-magic { background: linear-gradient(180deg, #0a1840 0%, #060e28 100%); color: #80b0ff; border-right: 2px solid #1830a0; }
+  .badge-ranged { background: linear-gradient(180deg, #0d2a08 0%, #081805 100%); color: #80e860; border-right: 2px solid #1a6010; }
+
+  .attack-info {
+    flex: 1;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .attack-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin-bottom: 3px;
+  }
+
+  .attack-detail {
+    font-size: 0.82rem;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .prayer-recommendation {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 14px 16px;
+    min-width: 160px;
+  }
+
+  .prayer-label {
+    font-size: 0.65rem;
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.1em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  .prayer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--prayer-glow);
+    text-shadow: 0 0 8px #ffe87a88;
+    text-align: right;
+  }
+
+  .prayer-icon {
+    font-size: 1.2rem;
+    margin-bottom: 2px;
+  }
+
+  .tip-box {
+    background: linear-gradient(180deg, #1a2a10 0%, #101808 100%);
+    border: 1px solid #3a5020;
+    border-radius: 4px;
+    padding: 12px 16px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #90c870;
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  .tip-box strong {
+    color: #b0e890;
+    font-style: normal;
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+  }
+
+  .no-selection {
+    text-align: center;
+    color: var(--text-dim);
+    font-style: italic;
+    padding: 32px 20px;
+    background: var(--brown-dark);
+    border: 2px solid var(--brown-border);
+    border-radius: 0 0 6px 6px;
+    font-size: 0.95rem;
+  }
+
+  .phase-tag {
+    display: inline-block;
+    background: #2a1a06;
+    border: 1px solid var(--gold-dark);
+    border-radius: 3px;
+    font-size: 0.65rem;
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    padding: 1px 5px;
+    margin-left: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.08em;
+  }
+
+  footer {
+    margin-top: 48px;
+    text-align: center;
+    color: #4a3820;
+    font-size: 0.78rem;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="title-icon">🙏</span>
+  <h1>OSRS Prayer Guide</h1>
+  <p class="subtitle">Know what to pray — or perish.</p>
+  <div class="divider"></div>
+</header>
+
+<div class="selector-panel">
+  <span class="selector-label">Search Monster</span>
+  <div class="search-wrap">
+    <input class="search-input" id="searchInput" type="text" placeholder="e.g. Abyssal demon, Zulrah, Cerberus..." autocomplete="off" />
+    <div class="search-dropdown" id="searchDropdown"></div>
+  </div>
+</div>
+
+<div class="prayer-panel" id="prayerPanel">
+  <div class="monster-header" id="monsterHeader"></div>
+  <div class="attacks-container" id="attacksContainer"></div>
+  <div id="tipBox"></div>
+</div>
+
+<footer>May Saradomin guide your prayers · Old School RuneScape</footer>
+
+<script>
+const PRAYERS = {
+  PROTECT_MELEE:  { name: "Protect from Melee",    icon: "🗡️" },
+  PROTECT_MAGIC:  { name: "Protect from Magic",    icon: "🔵" },
+  PROTECT_RANGED: { name: "Protect from Missiles", icon: "🏹" },
+  REDEMPTION:     { name: "Redemption",            icon: "💛" },
+  NONE:           { name: "No Prayer Needed",      icon: "–"  },
+};
+
+const M = PRAYERS.PROTECT_MELEE;
+const G = PRAYERS.PROTECT_MAGIC;
+const R = PRAYERS.PROTECT_RANGED;
+const N = PRAYERS.NONE;
+
+const MONSTERS = [
+  // ── Bosses ──────────────────────────────────────────────────────────────
+  { id:"zulrah",    name:"Zulrah",              icon:"🐍", cat:"Boss",   desc:"Serpent of the shrine — rotates styles by phase", tip:"Learn the rotation. You'll mostly alternate between Magic and Ranged protection each phase.", attacks:[{type:"magic",icon:"🔵",name:"Toxic Venom Cloud",detail:"Green phase",prayer:G},{type:"ranged",icon:"🏹",name:"Ranged Serpentine",detail:"Red phase",prayer:R},{type:"melee",icon:"⚔️",name:"Melee Bite",detail:"Only if adjacent",prayer:M,phase:"Adjacent"}]},
+  { id:"cerberus",  name:"Cerberus",            icon:"🐕", cat:"Boss",   desc:"Three-headed hellhound guardian of the River of Souls", tip:"Attacks in a fixed order: Magic → Ranged → Melee. Switch to Redemption when ghosts appear.", attacks:[{type:"magic",icon:"🔵",name:"Lava Breath",detail:"First in triple sequence",prayer:G},{type:"ranged",icon:"🏹",name:"Lightning Bolt",detail:"Second in sequence",prayer:R},{type:"melee",icon:"⚔️",name:"Triple Bite",detail:"Third in sequence",prayer:M,phase:"Cycle 3"}]},
+  { id:"vorkath",   name:"Vorkath",             icon:"🐉", cat:"Boss",   desc:"Undead dragon of Ungael — rapid ranged dragonfire", tip:"Mostly Ranged. During Zombified Spawn switch to Melee and run figure-eight. Dodge acid pools.", attacks:[{type:"ranged",icon:"🏹",name:"Dragon Breath",detail:"Primary — rapid ranged",prayer:R},{type:"magic",icon:"🔵",name:"Venom/Ice Breath",detail:"Special breath attacks",prayer:G},{type:"melee",icon:"⚔️",name:"Zombified Spawn",detail:"Switch to Melee prayer",prayer:M,phase:"Special"}]},
+  { id:"hydra",     name:"Alchemical Hydra",    icon:"🦎", cat:"Boss",   desc:"Slayer boss of Mount Karuulm — switches attack styles", tip:"Alternates Magic and Ranged every few attacks. Stand on vents. Switch prayer when it changes stance.", attacks:[{type:"magic",icon:"🔵",name:"Venom Spray",detail:"Magic phase",prayer:G},{type:"ranged",icon:"🏹",name:"Hydra Spittle",detail:"Ranged phase",prayer:R}]},
+  { id:"nightmare", name:"The Nightmare",       icon:"🌙", cat:"Boss",   desc:"Ancient parasite in the Sisterhood Sanctuary", tip:"Uses all three styles. Watch animations carefully to switch prayer. She can put you to sleep.", attacks:[{type:"melee",icon:"⚔️",name:"Tendrils Swipe",detail:"Arm swing",prayer:M},{type:"magic",icon:"🔵",name:"Nightmare Bolt",detail:"Sparkling orb",prayer:G},{type:"ranged",icon:"🏹",name:"Curse Darts",detail:"Shadowy darts",prayer:R}]},
+  { id:"corp",      name:"Corporeal Beast",     icon:"👁️", cat:"Boss",   desc:"Only melee weapons deal full damage", tip:"Pray Melee — it hits harder than the magic special. Use a spear.", attacks:[{type:"melee",icon:"⚔️",name:"Stomp / Swipe",detail:"Primary high damage",prayer:M},{type:"magic",icon:"🔵",name:"Dark Energy",detail:"Drains prayer & stats",prayer:G}]},
+  { id:"kbd",       name:"King Black Dragon",   icon:"🐲", cat:"Boss",   desc:"Legendary three-headed dragon of the wilderness", tip:"Antifire pot + Protect from Magic fully negates magic dragonfire.", attacks:[{type:"magic",icon:"🔵",name:"Magic Dragonfire",detail:"Most common breath",prayer:G},{type:"ranged",icon:"🏹",name:"Ranged Dragonfire",detail:"Freezing/poison breath",prayer:R},{type:"melee",icon:"⚔️",name:"Claw Swipe",detail:"In melee range",prayer:M}]},
+  { id:"bandos",    name:"General Graardor",    icon:"🪖", cat:"GWD",    desc:"Bandos's general — God Wars Dungeon", tip:"Pray Melee — his melee hits are far stronger than the ranged throws.", attacks:[{type:"melee",icon:"⚔️",name:"Stomp / Punch",detail:"Primary — very high damage",prayer:M},{type:"ranged",icon:"🏹",name:"Throwing Boulder",detail:"Less frequent",prayer:R}]},
+  { id:"zammy",     name:"K'ril Tsutsaroth",    icon:"😈", cat:"GWD",    desc:"Zamorak's general — God Wars Dungeon", tip:"Always Protect from Melee — his melee drains your prayer on hit.", attacks:[{type:"melee",icon:"⚔️",name:"Godsword Slash",detail:"Primary — drains prayer",prayer:M},{type:"magic",icon:"🔵",name:"Demonic Blast",detail:"Occasional magic",prayer:G}]},
+  { id:"saradomin", name:"Commander Zilyana",   icon:"⚔️", cat:"GWD",    desc:"Saradomin's champion — God Wars Dungeon", tip:"She's very fast. Protect from Magic and keep moving to avoid melee.", attacks:[{type:"magic",icon:"🔵",name:"Holy Bolt",detail:"Primary ranged strike",prayer:G},{type:"melee",icon:"⚔️",name:"Saradomin Sword",detail:"If she reaches you",prayer:M,phase:"Close"}]},
+  { id:"kreearra",  name:"Kree'arra",           icon:"🦅", cat:"GWD",    desc:"Armadyl's champion — God Wars Dungeon", tip:"Primarily Ranged. Stay off melee range to avoid wing buffet.", attacks:[{type:"ranged",icon:"🏹",name:"Wind Wave",detail:"Primary attack",prayer:R},{type:"magic",icon:"🔵",name:"Arcane Blast",detail:"Alternate attack",prayer:G},{type:"melee",icon:"⚔️",name:"Wing Buffet",detail:"Only if adjacent",prayer:M,phase:"Adjacent"}]},
+  { id:"nex",       name:"Nex",                 icon:"🧊", cat:"GWD",    desc:"Ancient Prison boss — four phases", tip:"Each phase has a different weakness. Pray Ranged during most phases; switch per mechanic.", attacks:[{type:"ranged",icon:"🏹",name:"Ice Barrage",detail:"Primary throughout",prayer:R},{type:"magic",icon:"🔵",name:"Smoke/Shadow/Blood/Ice",detail:"Phase special attacks",prayer:G},{type:"melee",icon:"⚔️",name:"Claw Swipe",detail:"In melee range",prayer:M,phase:"Close"}]},
+  // Barrows
+  { id:"ahrim",     name:"Ahrim the Blighted",  icon:"👻", cat:"Barrows", desc:"Mage brother — drains stats on hit", tip:"Magic only. High Magic defence gear recommended.", attacks:[{type:"magic",icon:"🔵",name:"Ahrim's Staff",detail:"Magic-only",prayer:G}]},
+  { id:"karil",     name:"Karil the Tainted",   icon:"💀", cat:"Barrows", desc:"Ranger brother — drains Agility", tip:"Ranged only. Protect from Missiles the whole fight.", attacks:[{type:"ranged",icon:"🏹",name:"Karil's Crossbow",detail:"Ranged-only",prayer:R}]},
+  { id:"dharok",    name:"Dharok the Wretched", icon:"🪓", cat:"Barrows", desc:"Melee brother — hits harder at low HP", tip:"Protect from Melee. Keep him high HP or he'll one-hit you.", attacks:[{type:"melee",icon:"⚔️",name:"Dharok's Greataxe",detail:"Harder at low HP",prayer:M}]},
+  { id:"guthan",    name:"Guthan the Infested", icon:"🪱", cat:"Barrows", desc:"Melee brother — heals on hit", tip:"Protect from Melee. He heals himself so kill quickly.", attacks:[{type:"melee",icon:"⚔️",name:"Guthan's Warspear",detail:"Heals on hit",prayer:M}]},
+  { id:"verac",     name:"Verac the Defiled",   icon:"🛡️", cat:"Barrows", desc:"Melee brother — can hit through prayer", tip:"Protect from Melee still reduces damage. His set effect can hit through prayer occasionally.", attacks:[{type:"melee",icon:"⚔️",name:"Verac's Flail",detail:"Can hit through prayer",prayer:M}]},
+  { id:"torag",     name:"Torag the Corrupted", icon:"🔨", cat:"Barrows", desc:"Melee brother — drains run energy", tip:"Protect from Melee. Relatively straightforward fight.", attacks:[{type:"melee",icon:"⚔️",name:"Torag's Hammers",detail:"Drains run energy",prayer:M}]},
+  // ToB
+  { id:"maiden",    name:"The Maiden of Sugadinti", icon:"🩸", cat:"ToB", desc:"First boss of Theatre of Blood", tip:"Magic only. Kill Blood Spawns before they reach her or she heals.", attacks:[{type:"magic",icon:"🔵",name:"Blood Attack",detail:"Magic-only",prayer:G}]},
+  { id:"bloat",     name:"Pestilent Bloat",     icon:"🪲", cat:"ToB",    desc:"Second boss of Theatre of Blood", tip:"Hide under it when it stops walking. Avoid falling flies.", attacks:[{type:"melee",icon:"⚔️",name:"Stomp",detail:"Melee stomp",prayer:M}]},
+  { id:"nylocas",   name:"Nylocas Vasilias",    icon:"🕷️", cat:"ToB",   desc:"Third boss of Theatre of Blood — switches weaknesses", tip:"Switch protection prayer when it changes colour: white=Melee, blue=Magic, green=Ranged.", attacks:[{type:"melee",icon:"⚔️",name:"White Phase",detail:"Pray Melee when white",prayer:M},{type:"magic",icon:"🔵",name:"Blue Phase",detail:"Pray Magic when blue",prayer:G},{type:"ranged",icon:"🏹",name:"Green Phase",detail:"Pray Ranged when green",prayer:R}]},
+  { id:"sotetseg",  name:"Sotetseg",            icon:"🎯", cat:"ToB",    desc:"Fourth boss of Theatre of Blood", tip:"Pray Melee. Dodge the red/black ball — if it hits you it's reflected to your partner.", attacks:[{type:"melee",icon:"⚔️",name:"Melee Swipe",detail:"Primary attack",prayer:M},{type:"magic",icon:"🔵",name:"Magic Ball",detail:"Redirect mechanic",prayer:G}]},
+  { id:"xarpus",    name:"Xarpus",              icon:"🦇", cat:"ToB",    desc:"Fifth boss of Theatre of Blood", tip:"During exhumed phase focus on the skeletons. Final phase: watch his eyes to dodge the sweep.", attacks:[{type:"magic",icon:"🔵",name:"Acid Spray",detail:"Poison pools on ground",prayer:G},{type:"melee",icon:"⚔️",name:"Eye Sweep",detail:"Final phase rotation attack",prayer:M,phase:"Final"}]},
+  { id:"verzik",    name:"Verzik Vitur",        icon:"👑", cat:"ToB",    desc:"Final boss of Theatre of Blood — three phases", tip:"P1: Melee. P2: Ranged primary, dodge green ball. P3: all three styles, watch carefully.", attacks:[{type:"melee",icon:"⚔️",name:"P1 Smash",detail:"Phase 1 only",prayer:M,phase:"P1"},{type:"ranged",icon:"🏹",name:"Web Bolt",detail:"Phase 2 primary",prayer:R,phase:"P2"},{type:"magic",icon:"🔵",name:"Green Orb",detail:"Explodes on player",prayer:G,phase:"P2-3"}]},
+  // ToA
+  { id:"akkha",     name:"Akkha",               icon:"👁️", cat:"ToA",   desc:"Tombs of Amascut — memory guardian", tip:"Pray opposite to his attack style. He telegraphs switches. Watch for shadow mechanics.", attacks:[{type:"melee",icon:"⚔️",name:"Melee Strike",detail:"Melee phase",prayer:M},{type:"magic",icon:"🔵",name:"Magic Bolt",detail:"Magic phase",prayer:G},{type:"ranged",icon:"🏹",name:"Ranged Shot",detail:"Ranged phase",prayer:R}]},
+  { id:"kephri",    name:"Kephri",              icon:"🪲", cat:"ToA",    desc:"Tombs of Amascut — scarab guardian", tip:"Protect from Magic. Focus on the dung spawns to prevent them overrunning you.", attacks:[{type:"magic",icon:"🔵",name:"Scarab Bolt",detail:"Primary magic attack",prayer:G},{type:"ranged",icon:"🏹",name:"Bomb Drop",detail:"Scarab bomb phase",prayer:R,phase:"Bombs"}]},
+  { id:"zebak",     name:"Zebak",               icon:"🐊", cat:"ToA",    desc:"Tombs of Amascut — crocodile guardian", tip:"Protect from Ranged. Dodge blood and water waves.", attacks:[{type:"ranged",icon:"🏹",name:"Blood Barrage",detail:"Primary attack",prayer:R},{type:"magic",icon:"🔵",name:"Water Wave",detail:"AoE wave mechanic",prayer:G,phase:"Wave"}]},
+  { id:"baba",      name:"Ba-Ba",               icon:"🦍", cat:"ToA",    desc:"Tombs of Amascut — baboon guardian", tip:"Protect from Melee. Dodge boulders and rolling balls. Drop the balls on pressure plates.", attacks:[{type:"melee",icon:"⚔️",name:"Slam",detail:"Primary melee attack",prayer:M},{type:"ranged",icon:"🏹",name:"Boulder Toss",detail:"Dodge the rocks",prayer:R,phase:"Boulder"}]},
+  { id:"warden",    name:"Elidinis' Warden",    icon:"🏛️", cat:"ToA",   desc:"Final boss of Tombs of Amascut", tip:"P2: Dodge obelisk energy. P3: Pray all styles in sequence. Down the core when exposed.", attacks:[{type:"ranged",icon:"🏹",name:"Obelisk Shot",detail:"Primary ranged",prayer:R},{type:"magic",icon:"🔵",name:"Lightning",detail:"Magic AoE",prayer:G},{type:"melee",icon:"⚔️",name:"Core Slam",detail:"P3 melee",prayer:M,phase:"P3"}]},
+  // Slayer bosses
+  { id:"abyssal_sire",  name:"Abyssal Sire",       icon:"👾", cat:"Slayer Boss", desc:"Abyssal demon Slayer boss — requires 85 Slayer", tip:"Pray Ranged during the first phase attacks. Stun the vents before attacking. Dodge tentacles in the second phase.", attacks:[{type:"ranged",icon:"🏹",name:"Tentacle Lash",detail:"Primary ranged attack",prayer:R},{type:"magic",icon:"🔵",name:"Shadow Smoke",detail:"Magic AoE attack",prayer:G}]},
+  { id:"grotesque",     name:"Grotesque Guardians", icon:"🗿", cat:"Slayer Boss", desc:"Gargoyle boss on the Slayer Tower rooftop", tip:"Dusk uses Melee and Magic; switch accordingly. During Dawn's flight phase, protect Ranged.", attacks:[{type:"melee",icon:"⚔️",name:"Dusk Smash",detail:"Primary melee",prayer:M},{type:"magic",icon:"🔵",name:"Dusk Zap",detail:"Magic lightning",prayer:G},{type:"ranged",icon:"🏹",name:"Dawn Crystals",detail:"Ranged crystal shards",prayer:R,phase:"Dawn"}]},
+  { id:"kraken",        name:"Kraken",              icon:"🦑", cat:"Slayer Boss", desc:"Cave Kraken boss — requires 87 Slayer", tip:"Magic only fight — no prayer needed for protection. Bring high Magic attack gear.", attacks:[{type:"magic",icon:"🔵",name:"Ink Spray",detail:"Magic-only attack",prayer:N}]},
+  { id:"smoke_devil",   name:"Thermonuclear Smoke Devil", icon:"🌪️", cat:"Slayer Boss", desc:"Smoke Devil boss — requires 93 Slayer", tip:"Magic only. No need for protection prayers — just high Magic attack.", attacks:[{type:"magic",icon:"🔵",name:"Smoke Cloud",detail:"Magic-only",prayer:N}]},
+  { id:"basilisk_knight", name:"Basilisk Knight",   icon:"🐍", cat:"Slayer Boss", desc:"Basilisk boss in the Fremennik Slayer Dungeon", tip:"Wear a Mirror shield or V's shield or you'll take heavy damage. It uses Melee and Ranged.", attacks:[{type:"melee",icon:"⚔️",name:"Stone Gaze",detail:"Melee petrify — need shield",prayer:M},{type:"ranged",icon:"🏹",name:"Ranged Bite",detail:"Ranged attack",prayer:R}]},
+  { id:"skotizo",       name:"Skotizo",             icon:"😈", cat:"Slayer Boss", desc:"Demonic boss accessed via Dark Totem", tip:"Protect from Melee. Disable the altars around the room or they'll heal him and spawn demons.", attacks:[{type:"melee",icon:"⚔️",name:"Claw Swipe",detail:"Primary melee",prayer:M},{type:"magic",icon:"🔵",name:"Shadow Bolt",detail:"Magic from altars",prayer:G,phase:"Altars"}]},
+  { id:"sarachnis",     name:"Sarachnis",           icon:"🕷️", cat:"Boss",  desc:"Spider boss in the Forthos Dungeon", tip:"Protect from Melee. Dodge the web she throws — it stuns you. Her spawns can heal her.", attacks:[{type:"melee",icon:"⚔️",name:"Spider Strike",detail:"Primary attack",prayer:M},{type:"ranged",icon:"🏹",name:"Web Throw",detail:"Stuns the player",prayer:R,phase:"Web"}]},
+  { id:"tempoross",     name:"Tempoross",           icon:"🌊", cat:"Boss",  desc:"Spirit of the Sea — skilling boss", tip:"No combat prayers needed — this is a skilling (fishing) encounter.", attacks:[{type:"ranged",icon:"🏹",name:"Wave Crash",detail:"AoE damage wave",prayer:N}]},
+  { id:"wintertodt",   name:"Wintertodt",           icon:"❄️", cat:"Boss",  desc:"Imprisoned entity — skilling boss (Firemaking)", tip:"No combat prayers needed. Wear warm clothing to reduce damage from brazier attacks.", attacks:[{type:"magic",icon:"🔵",name:"Blizzard",detail:"Cold magic damage",prayer:N}]},
+  { id:"zalcano",      name:"Zalcano",              icon:"🔮", cat:"Boss",  desc:"Imprisoned demon — skilling boss (Mining/Smithing)", tip:"No combat prayers. Chip the golem, imbue tephra, throw at Zalcano.", attacks:[{type:"ranged",icon:"🏹",name:"Tephra Debris",detail:"Falling rocks",prayer:N}]},
+  { id:"gauntlet",     name:"Crystalline Hunllef",  icon:"💎", cat:"Boss",  desc:"Final boss of The Gauntlet", tip:"Switches between Magic and Ranged every 4 attacks. Watch the colour of projectiles and switch accordingly.", attacks:[{type:"magic",icon:"🔵",name:"Crystal Magic",detail:"Blue orb",prayer:G},{type:"ranged",icon:"🏹",name:"Crystal Ranged",detail:"Green projectile",prayer:R},{type:"melee",icon:"⚔️",name:"Stomp",detail:"If you stand under it",prayer:M,phase:"Adjacent"}]},
+  { id:"phantom_muspah", name:"Phantom Muspah",     icon:"🌀", cat:"Boss",  desc:"Post-Mahjarrat Ritual boss", tip:"It cycles through forms. Ranged form: Pray Ranged. Magic form: Pray Magic. Melee form: Pray Melee. Watch the colour.", attacks:[{type:"ranged",icon:"🏹",name:"Ranged Form",detail:"Spiky form",prayer:R},{type:"magic",icon:"🔵",name:"Magic Form",detail:"Orb form",prayer:G},{type:"melee",icon:"⚔️",name:"Melee Form",detail:"Close form",prayer:M}]},
+  { id:"duke_sucellus", name:"Duke Sucellus",       icon:"🦇", cat:"Boss",  desc:"One of the Whisperer's Warden bosses", tip:"Pray Melee for most of the fight. Dodge the poison pools.", attacks:[{type:"melee",icon:"⚔️",name:"Claw Strike",detail:"Primary melee",prayer:M},{type:"magic",icon:"🔵",name:"Venom Spit",detail:"Poison magic",prayer:G}]},
+  { id:"leviathan",    name:"The Leviathan",        icon:"🐋", cat:"Boss",  desc:"Ancient sea creature boss", tip:"Cycles between Ranged and Magic. Watch projectile colours. Dodge the boulders.", attacks:[{type:"ranged",icon:"🏹",name:"Boulder Barrage",detail:"Ranged boulders",prayer:R},{type:"magic",icon:"🔵",name:"Electric Blast",detail:"Lightning magic",prayer:G}]},
+  { id:"whisperer",    name:"The Whisperer",        icon:"👁️", cat:"Boss",  desc:"Ancient shadow boss", tip:"Pray Ranged most of the fight. Interact with the shadows during the special phase.", attacks:[{type:"ranged",icon:"🏹",name:"Shadow Tendrils",detail:"Primary ranged",prayer:R},{type:"magic",icon:"🔵",name:"Void Bolt",detail:"Magic attack",prayer:G}]},
+  { id:"vardorvis",    name:"Vardorvis",            icon:"🪓", cat:"Boss",  desc:"Decapitated zealot boss", tip:"Pray Melee. Dodge the axes that fly across the arena — they follow a fixed pattern.", attacks:[{type:"melee",icon:"⚔️",name:"Axe Swipe",detail:"Primary melee",prayer:M},{type:"ranged",icon:"🏹",name:"Spike Throw",detail:"Ranged spikes",prayer:R,phase:"Spikes"}]},
+
+  // ── Slayer Monsters ─────────────────────────────────────────────────────
+  { id:"abyssal_demon",  name:"Abyssal Demon",      icon:"👿", cat:"Slayer", desc:"Level 85 Slayer — drops Abyssal whip", tip:"No need to pray. They teleport you short distances. Use Melee.", attacks:[{type:"melee",icon:"⚔️",name:"Melee + Teleport",detail:"Teleports you on hit",prayer:N}]},
+  { id:"greater_demon",  name:"Greater Demon",      icon:"😤", cat:"Slayer", desc:"Common Slayer/combat task", tip:"No prayer needed with good stats. Pray Melee if taking damage.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:N}]},
+  { id:"black_demon",    name:"Black Demon",        icon:"😡", cat:"Slayer", desc:"Stronger demon Slayer task", tip:"Can pray Melee to reduce damage significantly.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"High melee damage",prayer:M}]},
+  { id:"hellhound",      name:"Hellhound",          icon:"🐾", cat:"Slayer", desc:"Level 91 Slayer task monster", tip:"Melee only. Protect from Melee for longer trips or use Piety.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Melee-only",prayer:N}]},
+  { id:"bloodveld",      name:"Bloodveld",          icon:"🩸", cat:"Slayer", desc:"Level 50 Slayer — uses Magic-based melee", tip:"Their attacks are Magic-based so Magic defence gear helps, but no prayer needed.", attacks:[{type:"magic",icon:"🔵",name:"Tongue Lash",detail:"Magic-based melee",prayer:N}]},
+  { id:"nechryael",      name:"Nechryael",          icon:"💀", cat:"Slayer", desc:"Level 80 Slayer — drops Dragon boots", tip:"Melee only. Death spawns are annoying — kill them quickly.", attacks:[{type:"melee",icon:"⚔️",name:"Claw Swipe",detail:"Melee + spawns death imps",prayer:N}]},
+  { id:"dust_devil",     name:"Dust Devil",         icon:"🌪️", cat:"Slayer", desc:"Level 65 Slayer — drops Dragon chainbody", tip:"Magic-based attacks. High Magic defence gear helps. No prayer typically needed.", attacks:[{type:"magic",icon:"🔵",name:"Dust Cloud",detail:"Magic-based ranged",prayer:N}]},
+  { id:"skeletal_wyvern", name:"Skeletal Wyvern",   icon:"🦴", cat:"Slayer", desc:"Level 72 Slayer — icy breath attack", tip:"Must use an elemental or mind shield or take massive icy breath damage. Pray Melee.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:M},{type:"ranged",icon:"🏹",name:"Icy Breath",detail:"Freezes and damages — need shield",prayer:R}]},
+  { id:"gargoyle",       name:"Gargoyle",           icon:"🗿", cat:"Slayer", desc:"Level 75 Slayer — must finish with Rock hammer", tip:"Melee only. Remember to use Rock hammer (or granite hammer) to finish them off.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Melee-only",prayer:N}]},
+  { id:"cave_horror",    name:"Cave Horror",        icon:"🦇", cat:"Slayer", desc:"Level 58 Slayer — drops Black mask", tip:"Wear a witchwood icon or take heavy damage. Melee only.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Melee — wear witchwood icon",prayer:N}]},
+  { id:"turoth",         name:"Turoth",             icon:"🌿", cat:"Slayer", desc:"Level 55 Slayer — must use leaf-bladed weapon", tip:"Only leaf-bladed weapons, broad bolts/arrows, or magic work. No prayer needed.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Melee-only",prayer:N}]},
+  { id:"kurask",         name:"Kurask",             icon:"🌿", cat:"Slayer", desc:"Level 70 Slayer — must use leaf-bladed weapon", tip:"Same as Turoths — leaf-bladed weapons, broad ammo, or magic only.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Melee-only",prayer:N}]},
+  { id:"dark_beast",     name:"Dark Beast",         icon:"🐺", cat:"Slayer", desc:"Level 90 Slayer — drops Dark bow", tip:"Uses both Melee and Ranged. Pray Ranged — their ranged hits are more frequent.", attacks:[{type:"ranged",icon:"🏹",name:"Shadow Bolt",detail:"Frequent ranged attack",prayer:R},{type:"melee",icon:"⚔️",name:"Melee Swipe",detail:"In close range",prayer:M}]},
+  { id:"cave_kraken",    name:"Cave Kraken",        icon:"🦑", cat:"Slayer", desc:"Level 87 Slayer — drops Kraken tentacle", tip:"Magic only — no protection prayer needed.", attacks:[{type:"magic",icon:"🔵",name:"Ink Spray",detail:"Magic-only",prayer:N}]},
+  { id:"wyrm",           name:"Wyrm",               icon:"🐛", cat:"Slayer", desc:"Level 62 Slayer — in Mount Karuulm", tip:"Uses both Melee and Magic. Pray Magic for longer trips.", attacks:[{type:"magic",icon:"🔵",name:"Toxic Spit",detail:"Magic attack",prayer:G},{type:"melee",icon:"⚔️",name:"Tail Swipe",detail:"Melee in close range",prayer:M}]},
+  { id:"drake",          name:"Drake",              icon:"🦎", cat:"Slayer", desc:"Level 84 Slayer — in Mount Karuulm", tip:"Uses Melee and Ranged. Pray Melee for trips or Ranged if safer.", attacks:[{type:"melee",icon:"⚔️",name:"Bite",detail:"High melee hit",prayer:M},{type:"ranged",icon:"🏹",name:"Fireball",detail:"Ranged fire",prayer:R}]},
+  { id:"wyvern",         name:"Wyvern",             icon:"🐉", cat:"Slayer", desc:"Level 66 Slayer — in Wyvern Cave", tip:"Use an elemental shield. Pray Ranged — icy breath is the dangerous attack.", attacks:[{type:"ranged",icon:"🏹",name:"Icy Breath",detail:"Freezes — need shield",prayer:R},{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:M}]},
+  { id:"basilisk",       name:"Basilisk",           icon:"🐍", cat:"Slayer", desc:"Level 40 Slayer — needs Mirror shield", tip:"Wear a Mirror shield or V's shield to avoid being petrified.", attacks:[{type:"melee",icon:"⚔️",name:"Stone Gaze",detail:"Petrify — need mirror shield",prayer:M}]},
+  { id:"warped_jelly",   name:"Warped Jelly",       icon:"🫧", cat:"Slayer", desc:"Level 52 Slayer — in Catacombs", tip:"Pray Ranged — they throw projectiles frequently.", attacks:[{type:"ranged",icon:"🏹",name:"Jelly Throw",detail:"Ranged projectile",prayer:R}]},
+  { id:"smoke_devil_reg", name:"Smoke Devil",       icon:"🌪️", cat:"Slayer", desc:"Level 93 Slayer — before boss variant", tip:"Uses magic-based attacks. No prayer typically needed.", attacks:[{type:"magic",icon:"🔵",name:"Smoke Cloud",detail:"Magic-based",prayer:N}]},
+  { id:"spiritual_mage", name:"Spiritual Mage",     icon:"🔮", cat:"Slayer", desc:"GWD Slayer monster — drops Arcane prayer scroll", tip:"Pray Melee — they hit hard in melee. Magic attacks are less common.", attacks:[{type:"melee",icon:"⚔️",name:"Staff Strike",detail:"High melee hit",prayer:M},{type:"magic",icon:"🔵",name:"Magic Bolt",detail:"Occasional magic",prayer:G}]},
+  { id:"black_dragon",   name:"Black Dragon",       icon:"🐲", cat:"Slayer", desc:"Requires antifire protection", tip:"Use antifire potion and shield. Pray Melee inside their cave.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:M},{type:"magic",icon:"🔵",name:"Dragonfire",detail:"Need antifire — magic breath",prayer:G}]},
+  { id:"fire_giant",     name:"Fire Giant",         icon:"🔥", cat:"Slayer", desc:"Common Slayer task — good exp", tip:"Protect from Melee for sustained trips. Good prayer exp with Piety.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"High melee hits",prayer:M}]},
+  { id:"iron_dragon",    name:"Iron Dragon",        icon:"🐉", cat:"Slayer", desc:"Level 74 Slayer — uses dragonfire", tip:"Antifire needed. Pray Melee or range from a distance.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:M},{type:"magic",icon:"🔵",name:"Dragonfire",detail:"Use antifire pot",prayer:G}]},
+  { id:"steel_dragon",   name:"Steel Dragon",       icon:"🐉", cat:"Slayer", desc:"Level 74 Slayer — strong dragonfire", tip:"Stronger dragonfire than iron. Antifire + protect if struggling.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Strong melee",prayer:M},{type:"magic",icon:"🔵",name:"Dragonfire",detail:"Stronger breath — use antifire",prayer:G}]},
+  { id:"mithril_dragon", name:"Mithril Dragon",     icon:"🐉", cat:"Slayer", desc:"Level 68 Slayer (for task) — Ancient Cavern", tip:"All three dragonfire types. Antifire essential. Pray Melee in melee range.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Melee in close range",prayer:M},{type:"magic",icon:"🔵",name:"Magic Dragonfire",detail:"Antifire needed",prayer:G},{type:"ranged",icon:"🏹",name:"Ranged Dragonfire",detail:"Ranged breath",prayer:R}]},
+  { id:"fossil_wyvern",  name:"Ancient Wyvern",     icon:"🦕", cat:"Slayer", desc:"Level 82 Slayer — Wyvern Cave", tip:"Use an ancient wyvern shield. Their breath can't be fully prayed against without it.", attacks:[{type:"ranged",icon:"🏹",name:"Ancient Icy Breath",detail:"Chilling — need ancient shield",prayer:R},{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:M}]},
+  { id:"demonic_gorilla", name:"Demonic Gorilla",   icon:"🦍", cat:"Slayer", desc:"After Monkey Madness II — switches prayers", tip:"They switch attack styles when you use the wrong prayer. Always pray the opposite of what they're using and switch quickly.", attacks:[{type:"melee",icon:"⚔️",name:"Gorilla Smash",detail:"Switches to counter your prayer",prayer:M},{type:"magic",icon:"🔵",name:"Magic Bolt",detail:"Switches styles if you don't swap",prayer:G},{type:"ranged",icon:"🏹",name:"Boulder Throw",detail:"Ranged attack",prayer:R}]},
+  { id:"scabaras",       name:"Scarab Mage",        icon:"🪲", cat:"Slayer", desc:"Kalphite/desert slayer monster", tip:"Pray Magic — their bolt attacks are magic-based.", attacks:[{type:"magic",icon:"🔵",name:"Scarab Bolt",detail:"Magic attack",prayer:G}]},
+  { id:"kalphite_worker", name:"Kalphite Worker",   icon:"🦂", cat:"Slayer", desc:"Lowest tier kalphite", tip:"No prayer needed for standard workers.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Basic melee",prayer:N}]},
+  { id:"kalphite_soldier", name:"Kalphite Soldier", icon:"🦂", cat:"Slayer", desc:"Mid-tier kalphite", tip:"Protect Melee if taking heavy hits.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Moderate melee",prayer:M}]},
+  { id:"kalphite_guardian", name:"Kalphite Guardian", icon:"🦂", cat:"Slayer", desc:"High-tier kalphite — hard hitting", tip:"Protect from Melee strongly recommended.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Hard melee hits",prayer:M}]},
+  { id:"kalphite_queen",  name:"Kalphite Queen",    icon:"🦂", cat:"Boss",   desc:"Dual-phase boss under the Kalphite Lair", tip:"Phase 1: Protect from Ranged. Phase 2 (fly): Protect from Magic. She switches phases.", attacks:[{type:"ranged",icon:"🏹",name:"P1 Ranged",detail:"Ground phase",prayer:R,phase:"P1"},{type:"magic",icon:"🔵",name:"P2 Magic",detail:"Flying phase",prayer:G,phase:"P2"}]},
+  { id:"cave_bug",        name:"Cave Bug",          icon:"🪲", cat:"Slayer", desc:"Level 7 Slayer — beginner task", tip:"No prayer needed. Very low level.", attacks:[{type:"melee",icon:"⚔️",name:"Bite",detail:"Basic melee",prayer:N}]},
+  { id:"cave_crawler",    name:"Cave Crawler",      icon:"🐛", cat:"Slayer", desc:"Level 10 Slayer — poisons", tip:"Bring antipoison. No prayer needed.", attacks:[{type:"melee",icon:"⚔️",name:"Crawl + Poison",detail:"Poisons on hit",prayer:N}]},
+  { id:"banshee",         name:"Banshee",           icon:"👻", cat:"Slayer", desc:"Level 15 Slayer — wear earplugs", tip:"Wear earplugs (slayer helmet counts). No prayer needed.", attacks:[{type:"magic",icon:"🔵",name:"Wail",detail:"Need earplugs equipped",prayer:N}]},
+  { id:"wall_beast",      name:"Wall Beast",        icon:"🦀", cat:"Slayer", desc:"Level 35 Slayer — wear spiky helmet", tip:"Wear a spiked helmet or take heavy damage from grabs.", attacks:[{type:"melee",icon:"⚔️",name:"Grab Attack",detail:"Need spiked helmet",prayer:N}]},
+  { id:"mogre",           name:"Mogre",             icon:"🧌", cat:"Slayer", desc:"Level 32 Slayer — underwater", tip:"No prayer needed. Use fishing explosive to access.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Basic melee",prayer:N}]},
+  { id:"harpie_bug_swarm", name:"Harpie Bug Swarm", icon:"🦟", cat:"Slayer", desc:"Level 33 Slayer — use lit bug lantern", tip:"Bring a lit bug lantern. No prayer needed.", attacks:[{type:"melee",icon:"⚔️",name:"Swarm",detail:"Need lit bug lantern",prayer:N}]},
+  { id:"brine_rat",       name:"Brine Rat",         icon:"🐀", cat:"Slayer", desc:"Level 47 Slayer", tip:"No prayer needed. Relatively weak.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:N}]},
+  { id:"terrorbird",      name:"Terrorbird",        icon:"🦅", cat:"Slayer", desc:"Assigned occasionally as Slayer task", tip:"No prayer needed. They can freeze you briefly.", attacks:[{type:"melee",icon:"⚔️",name:"Peck",detail:"Standard melee",prayer:N}]},
+  { id:"fungal_mage",     name:"Fungal Mage",       icon:"🍄", cat:"Slayer", desc:"Level 57 Slayer — Polypore Dungeon", tip:"Pray Magic — hits hard with spells.", attacks:[{type:"magic",icon:"🔵",name:"Fungal Bolt",detail:"Magic attack",prayer:G}]},
+  { id:"mutated_bloodveld", name:"Mutated Bloodveld", icon:"🩸", cat:"Slayer", desc:"Stronger bloodveld in Catacombs/GWD2", tip:"Magic-based attacks — high Magic defence helps. Catacombs version hits harder.", attacks:[{type:"magic",icon:"🔵",name:"Tongue Lash",detail:"Magic-based melee",prayer:G}]},
+  { id:"ankou",           name:"Ankou",             icon:"💀", cat:"Slayer", desc:"Common Slayer task — Stronghold of Security", tip:"Can use Protect from Melee for longer trips. They hit relatively accurately.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:N}]},
+  { id:"dagannoth",       name:"Dagannoth",         icon:"🐟", cat:"Slayer", desc:"Common Slayer task — various locations", tip:"No prayer needed for standard dagannoths.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:N}]},
+  { id:"dag_prime",       name:"Dagannoth Prime",   icon:"🔵", cat:"Boss",   desc:"Dagannoth King — Magic", tip:"Pray Magic. Prime only uses Magic attacks. Use Ranged to kill him.", attacks:[{type:"magic",icon:"🔵",name:"Magic Bolt",detail:"Magic-only",prayer:G}]},
+  { id:"dag_rex",         name:"Dagannoth Rex",     icon:"⚔️", cat:"Boss",  desc:"Dagannoth King — Melee", tip:"Pray Melee. Rex only uses Melee. Use Magic to kill him.", attacks:[{type:"melee",icon:"⚔️",name:"Melee Charge",detail:"Melee-only",prayer:M}]},
+  { id:"dag_supreme",     name:"Dagannoth Supreme", icon:"🏹", cat:"Boss",  desc:"Dagannoth King — Ranged", tip:"Pray Ranged. Supreme only uses Ranged. Use Melee to kill him.", attacks:[{type:"ranged",icon:"🏹",name:"Spine Shot",detail:"Ranged-only",prayer:R}]},
+  { id:"thermy",          name:"Thermy (Smoke Devil)", icon:"🌪️", cat:"Slayer Boss", desc:"Thermonuclear Smoke Devil boss", tip:"Magic-based. No protection prayer needed — bring high Magic attack gear.", attacks:[{type:"magic",icon:"🔵",name:"Smoke Blast",detail:"Magic attack",prayer:N}]},
+  { id:"cave_slime",      name:"Cave Slime",        icon:"🫧", cat:"Slayer", desc:"Level 17 Slayer — poisons", tip:"Bring antipoison. No prayer needed.", attacks:[{type:"melee",icon:"⚔️",name:"Slime Spit",detail:"Poisons on contact",prayer:N}]},
+  { id:"infernal_mage",   name:"Infernal Mage",     icon:"🔥", cat:"Slayer", desc:"Level 45 Slayer — Slayer Tower", tip:"Pray Magic — they hit accurately with fire spells.", attacks:[{type:"magic",icon:"🔵",name:"Fire Bolt",detail:"Magic fire attack",prayer:G}]},
+  { id:"cockatrice",      name:"Cockatrice",        icon:"🐓", cat:"Slayer", desc:"Level 25 Slayer — needs mirror shield", tip:"Bring a mirror or V's shield — without it you take heavy Ranged damage.", attacks:[{type:"ranged",icon:"🏹",name:"Stone Gaze",detail:"Need mirror shield",prayer:R}]},
+  { id:"pyrefiend",       name:"Pyrefiend",         icon:"🔥", cat:"Slayer", desc:"Level 30 Slayer — fire creature", tip:"No prayer needed. Weak to water spells.", attacks:[{type:"melee",icon:"⚔️",name:"Fire Strike",detail:"Melee-based fire",prayer:N}]},
+  { id:"rockslugs",       name:"Rockslug",          icon:"🐌", cat:"Slayer", desc:"Level 20 Slayer — needs Bag of salt", tip:"Use a Bag of salt to finish them. No prayer needed.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Need salt to finish",prayer:N}]},
+  { id:"lizardmen",       name:"Lizardman",         icon:"🦎", cat:"Slayer", desc:"Level 5 Slayer — Kebos Lowlands", tip:"No prayer needed for regular lizardmen. Shaman variants need attention.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:N}]},
+  { id:"lizardman_shaman", name:"Lizardman Shaman", icon:"🦎", cat:"Slayer", desc:"Raids-adjacent Slayer task — drops Draconic Visage style items", tip:"Pray Ranged — their jump attack is the most dangerous. Dodge the spawned spawns.", attacks:[{type:"ranged",icon:"🏹",name:"Spit Attack",detail:"Ranged spit",prayer:R},{type:"melee",icon:"⚔️",name:"Melee Jump",detail:"Jumps on player",prayer:M,phase:"Jump"}]},
+  { id:"wyrm_slayer",     name:"Wyrm (Slayer)",     icon:"🐛", cat:"Slayer", desc:"Level 62 Slayer — Mount Karuulm", tip:"Uses both Magic and Melee. Pray Magic for longer trips.", attacks:[{type:"magic",icon:"🔵",name:"Toxic Spit",detail:"Magic attack",prayer:G},{type:"melee",icon:"⚔️",name:"Tail Swipe",detail:"Melee",prayer:M}]},
+  { id:"waterfiend",      name:"Waterfiend",        icon:"💧", cat:"Slayer", desc:"Level 75 Slayer — Ancient Cavern", tip:"Pray Ranged — they throw boulders frequently. Weak to crush attacks.", attacks:[{type:"ranged",icon:"🏹",name:"Boulder Throw",detail:"Ranged boulders",prayer:R}]},
+  { id:"jungle_horror",   name:"Jungle Horror",     icon:"🌿", cat:"Slayer", desc:"Level 52 Slayer — Ape Atoll", tip:"No prayer needed. Lower stats than cave horrors.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Standard melee",prayer:N}]},
+  { id:"sea_snake",       name:"Sea Snake",         icon:"🐍", cat:"Slayer", desc:"Assigned as Slayer task occasionally", tip:"No prayer needed.", attacks:[{type:"melee",icon:"⚔️",name:"Bite",detail:"Standard melee",prayer:N}]},
+  { id:"warped_terrorbird", name:"Warped Terrorbird", icon:"🦅", cat:"Slayer", desc:"Level 56 Slayer — Ourania Dungeon", tip:"No prayer needed.", attacks:[{type:"melee",icon:"⚔️",name:"Peck",detail:"Standard melee",prayer:N}]},
+  { id:"mutated_zygomite", name:"Mutated Zygomite", icon:"🍄", cat:"Slayer", desc:"Level 57 Slayer — Zanaris", tip:"Use Fungicide spray when they're nearly dead or they'll heal.", attacks:[{type:"melee",icon:"⚔️",name:"Melee",detail:"Need fungicide to finish",prayer:N}]},
+  { id:"fever_spider",    name:"Fever Spider",      icon:"🕷️", cat:"Slayer", desc:"Level 42 Slayer — wear Slayer gloves", tip:"Wear a face full helmet or slayer helmet. Infectious on hit otherwise.", attacks:[{type:"melee",icon:"⚔️",name:"Bite",detail:"Need Slayer gloves",prayer:N}]},
+  { id:"mort_myre_fungus_creature", name:"Ghast",   icon:"👻", cat:"Slayer", desc:"Level 30 Slayer — Mort Myre Swamp", tip:"Use a Druid pouch filled with Mort Myre items to make them visible/attackable.", attacks:[{type:"magic",icon:"🔵",name:"Life Drain",detail:"Need Druid pouch",prayer:N}]},
+];
+
+const typeLabels = { melee: "Melee", magic: "Magic", ranged: "Ranged" };
+
+let focusedIndex = -1;
+let filtered = [];
+
+function buildDropdown(query) {
+  const dd = document.getElementById("searchDropdown");
+  query = query.trim().toLowerCase();
+  filtered = query
+    ? MONSTERS.filter(m => m.name.toLowerCase().includes(query) || m.cat.toLowerCase().includes(query))
+    : MONSTERS;
+
+  if (filtered.length === 0) {
+    dd.innerHTML = `<div class="dropdown-empty">No monsters found</div>`;
+  } else {
+    dd.innerHTML = filtered.map((m, i) =>
+      `<div class="dropdown-item" data-id="${m.id}" data-idx="${i}">
+        <span class="d-icon">${m.icon}</span>
+        <span>${m.name}</span>
+        <span class="d-cat">${m.cat}</span>
+      </div>`
+    ).join("");
+    dd.querySelectorAll(".dropdown-item").forEach(el => {
+      el.addEventListener("mousedown", e => {
+        e.preventDefault();
+        selectMonster(el.dataset.id);
+        closeDropdown();
+      });
+    });
+  }
+  focusedIndex = -1;
+  dd.classList.add("open");
+}
+
+function closeDropdown() {
+  document.getElementById("searchDropdown").classList.remove("open");
+  focusedIndex = -1;
+}
+
+function moveFocus(dir) {
+  const items = document.querySelectorAll(".dropdown-item");
+  if (!items.length) return;
+  items[focusedIndex]?.classList.remove("focused");
+  focusedIndex = Math.max(0, Math.min(items.length - 1, focusedIndex + dir));
+  items[focusedIndex].classList.add("focused");
+  items[focusedIndex].scrollIntoView({ block: "nearest" });
+}
+
+document.getElementById("searchInput").addEventListener("input", e => buildDropdown(e.target.value));
+document.getElementById("searchInput").addEventListener("focus", e => buildDropdown(e.target.value));
+document.getElementById("searchInput").addEventListener("keydown", e => {
+  if (e.key === "ArrowDown") { e.preventDefault(); moveFocus(1); }
+  else if (e.key === "ArrowUp") { e.preventDefault(); moveFocus(-1); }
+  else if (e.key === "Enter") {
+    const items = document.querySelectorAll(".dropdown-item");
+    if (focusedIndex >= 0 && items[focusedIndex]) {
+      selectMonster(items[focusedIndex].dataset.id);
+      closeDropdown();
+      document.getElementById("searchInput").blur();
+    }
+  }
+  else if (e.key === "Escape") closeDropdown();
+});
+document.addEventListener("click", e => {
+  if (!e.target.closest(".search-wrap")) closeDropdown();
+});
+
+function selectMonster(id) {
+  const m = MONSTERS.find(x => x.id === id);
+  if (!m) return;
+
+  document.getElementById("searchInput").value = m.name;
+
+  const panel = document.getElementById("prayerPanel");
+  const header = document.getElementById("monsterHeader");
+  const container = document.getElementById("attacksContainer");
+  const tipBox = document.getElementById("tipBox");
+
+  header.innerHTML = `
+    <span class="monster-big-icon">${m.icon}</span>
+    <div>
+      <div class="monster-title">${m.name}</div>
+      <div class="monster-desc">${m.desc}</div>
+    </div>`;
+
+  container.innerHTML = m.attacks.map(atk => `
+    <div class="attack-row">
+      <div class="attack-type-badge badge-${atk.type}">
+        <span class="atk-icon">${atk.icon}</span>
+        <span>${typeLabels[atk.type]}</span>
+      </div>
+      <div class="attack-info">
+        <div class="attack-name">${atk.name}${atk.phase ? `<span class="phase-tag">${atk.phase}</span>` : ''}</div>
+        <div class="attack-detail">${atk.detail}</div>
+      </div>
+      <div class="prayer-recommendation">
+        <div class="prayer-label">Pray</div>
+        <div class="prayer-icon">${atk.prayer.icon}</div>
+        <div class="prayer-name">${atk.prayer.name}</div>
+      </div>
+    </div>`).join("");
+
+  tipBox.innerHTML = m.tip ? `<div class="tip-box"><strong>📜 Tip:</strong> ${m.tip}</div>` : "";
+  panel.classList.add("visible");
+}
+</script>
+</body>
+</html>
