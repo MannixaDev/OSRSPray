@@ -1,77 +1,1781 @@
 {
   "monsters": [
-    { "id": "zulrah", "name": "Zulrah", "icon": "🐍", "cat": "Boss", "wiki_name": "Zulrah", "desc": "Serpent of the shrine — rotates styles by phase", "tip": "Learn the rotation. You'll mostly alternate between Magic and Ranged protection each phase.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Toxic Venom Cloud", "detail": "Green phase", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Ranged Serpentine", "detail": "Red phase", "prayer": "PROTECT_RANGED" }, { "type": "melee", "icon": "⚔️", "name": "Melee Bite", "detail": "Only if adjacent", "prayer": "PROTECT_MELEE", "phase": "Adjacent" }] },
-    { "id": "cerberus", "name": "Cerberus", "icon": "🐕", "cat": "Boss", "wiki_name": "Cerberus", "desc": "Three-headed hellhound guardian of the River of Souls", "tip": "Attacks in a fixed order: Magic → Ranged → Melee. Switch to Redemption when ghosts appear.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Lava Breath", "detail": "First in triple sequence", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Lightning Bolt", "detail": "Second in sequence", "prayer": "PROTECT_RANGED" }, { "type": "melee", "icon": "⚔️", "name": "Triple Bite", "detail": "Third in sequence", "prayer": "PROTECT_MELEE", "phase": "Cycle 3" }] },
-    { "id": "vorkath", "name": "Vorkath", "icon": "🐉", "cat": "Boss", "wiki_name": "Vorkath", "desc": "Undead dragon of Ungael — rapid ranged dragonfire", "tip": "Mostly Ranged. During Zombified Spawn switch to Melee and run figure-eight. Dodge acid pools.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Dragon Breath", "detail": "Primary — rapid ranged", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Venom/Ice Breath", "detail": "Special breath attacks", "prayer": "PROTECT_MAGIC" }, { "type": "melee", "icon": "⚔️", "name": "Zombified Spawn", "detail": "Switch to Melee prayer", "prayer": "PROTECT_MELEE", "phase": "Special" }] },
-    { "id": "hydra", "name": "Alchemical Hydra", "icon": "🦎", "cat": "Boss", "wiki_name": "Alchemical Hydra", "desc": "Slayer boss of Mount Karuulm — switches attack styles", "tip": "Alternates Magic and Ranged every few attacks. Stand on vents. Switch prayer when it changes stance.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Venom Spray", "detail": "Magic phase", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Hydra Spittle", "detail": "Ranged phase", "prayer": "PROTECT_RANGED" }] },
-    { "id": "nightmare", "name": "The Nightmare", "icon": "🌙", "cat": "Boss", "wiki_name": "The Nightmare", "desc": "Ancient parasite in the Sisterhood Sanctuary", "tip": "Uses all three styles. Watch animations carefully to switch prayer. She can put you to sleep.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Tendrils Swipe", "detail": "Arm swing", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Nightmare Bolt", "detail": "Sparkling orb", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Curse Darts", "detail": "Shadowy darts", "prayer": "PROTECT_RANGED" }] },
-    { "id": "corp", "name": "Corporeal Beast", "icon": "👁️", "cat": "Boss", "wiki_name": "Corporeal Beast", "desc": "Only melee weapons deal full damage", "tip": "Pray Melee — it hits harder than the magic special. Use a spear.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Stomp / Swipe", "detail": "Primary high damage", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Dark Energy", "detail": "Drains prayer & stats", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "kbd", "name": "King Black Dragon", "icon": "🐲", "cat": "Boss", "wiki_name": "King Black Dragon", "desc": "Legendary three-headed dragon of the wilderness", "tip": "Antifire pot + Protect from Magic fully negates magic dragonfire.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Magic Dragonfire", "detail": "Most common breath", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Ranged Dragonfire", "detail": "Freezing/poison breath", "prayer": "PROTECT_RANGED" }, { "type": "melee", "icon": "⚔️", "name": "Claw Swipe", "detail": "In melee range", "prayer": "PROTECT_MELEE" }] },
-    { "id": "bandos", "name": "General Graardor", "icon": "🪖", "cat": "GWD", "wiki_name": "General Graardor", "desc": "Bandos's general — God Wars Dungeon", "tip": "Pray Melee — his melee hits are far stronger than the ranged throws.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Stomp / Punch", "detail": "Primary — very high damage", "prayer": "PROTECT_MELEE" }, { "type": "ranged", "icon": "🏹", "name": "Throwing Boulder", "detail": "Less frequent", "prayer": "PROTECT_RANGED" }] },
-    { "id": "zammy", "name": "K'ril Tsutsaroth", "icon": "😈", "cat": "GWD", "wiki_name": "K'ril Tsutsaroth", "desc": "Zamorak's general — God Wars Dungeon", "tip": "Always Protect from Melee — his melee drains your prayer on hit.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Godsword Slash", "detail": "Primary — drains prayer", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Demonic Blast", "detail": "Occasional magic", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "saradomin", "name": "Commander Zilyana", "icon": "⚔️", "cat": "GWD", "wiki_name": "Commander Zilyana", "desc": "Saradomin's champion — God Wars Dungeon", "tip": "She's very fast. Protect from Magic and keep moving to avoid melee.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Holy Bolt", "detail": "Primary ranged strike", "prayer": "PROTECT_MAGIC" }, { "type": "melee", "icon": "⚔️", "name": "Saradomin Sword", "detail": "If she reaches you", "prayer": "PROTECT_MELEE", "phase": "Close" }] },
-    { "id": "kreearra", "name": "Kree'arra", "icon": "🦅", "cat": "GWD", "wiki_name": "Kree'arra", "desc": "Armadyl's champion — God Wars Dungeon", "tip": "Primarily Ranged. Stay off melee range to avoid wing buffet.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Wind Wave", "detail": "Primary attack", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Arcane Blast", "detail": "Alternate attack", "prayer": "PROTECT_MAGIC" }, { "type": "melee", "icon": "⚔️", "name": "Wing Buffet", "detail": "Only if adjacent", "prayer": "PROTECT_MELEE", "phase": "Adjacent" }] },
-    { "id": "nex", "name": "Nex", "icon": "🧊", "cat": "GWD", "wiki_name": "Nex", "desc": "Ancient Prison boss — four phases", "tip": "Each phase has a different weakness. Pray Ranged during most phases; switch per mechanic.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Ice Barrage", "detail": "Primary throughout", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Smoke/Shadow/Blood/Ice", "detail": "Phase special attacks", "prayer": "PROTECT_MAGIC" }, { "type": "melee", "icon": "⚔️", "name": "Claw Swipe", "detail": "In melee range", "prayer": "PROTECT_MELEE", "phase": "Close" }] },
-    { "id": "ahrim", "name": "Ahrim the Blighted", "icon": "👻", "cat": "Barrows", "wiki_name": "Ahrim the Blighted", "desc": "Mage brother — drains stats on hit", "tip": "Magic only. High Magic defence gear recommended.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Ahrim's Staff", "detail": "Magic-only", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "karil", "name": "Karil the Tainted", "icon": "💀", "cat": "Barrows", "wiki_name": "Karil the Tainted", "desc": "Ranger brother — drains Agility", "tip": "Ranged only. Protect from Missiles the whole fight.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Karil's Crossbow", "detail": "Ranged-only", "prayer": "PROTECT_RANGED" }] },
-    { "id": "dharok", "name": "Dharok the Wretched", "icon": "🪓", "cat": "Barrows", "wiki_name": "Dharok the Wretched", "desc": "Melee brother — hits harder at low HP", "tip": "Protect from Melee. Keep him high HP or he'll one-hit you.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Dharok's Greataxe", "detail": "Harder at low HP", "prayer": "PROTECT_MELEE" }] },
-    { "id": "guthan", "name": "Guthan the Infested", "icon": "🪱", "cat": "Barrows", "wiki_name": "Guthan the Infested", "desc": "Melee brother — heals on hit", "tip": "Protect from Melee. He heals himself so kill quickly.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Guthan's Warspear", "detail": "Heals on hit", "prayer": "PROTECT_MELEE" }] },
-    { "id": "verac", "name": "Verac the Defiled", "icon": "🛡️", "cat": "Barrows", "wiki_name": "Verac the Defiled", "desc": "Melee brother — can hit through prayer", "tip": "Protect from Melee still reduces damage. His set effect can hit through prayer occasionally.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Verac's Flail", "detail": "Can hit through prayer", "prayer": "PROTECT_MELEE" }] },
-    { "id": "torag", "name": "Torag the Corrupted", "icon": "🔨", "cat": "Barrows", "wiki_name": "Torag the Corrupted", "desc": "Melee brother — drains run energy", "tip": "Protect from Melee. Relatively straightforward fight.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Torag's Hammers", "detail": "Drains run energy", "prayer": "PROTECT_MELEE" }] },
-    { "id": "maiden", "name": "The Maiden of Sugadinti", "icon": "🩸", "cat": "ToB", "wiki_name": "The Maiden of Sugadinti", "desc": "First boss of Theatre of Blood", "tip": "Magic only. Kill Blood Spawns before they reach her or she heals.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Blood Attack", "detail": "Magic-only", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "bloat", "name": "Pestilent Bloat", "icon": "🪲", "cat": "ToB", "wiki_name": "Pestilent Bloat", "desc": "Second boss of Theatre of Blood", "tip": "Hide under it when it stops walking. Avoid falling flies.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Stomp", "detail": "Melee stomp", "prayer": "PROTECT_MELEE" }] },
-    { "id": "nylocas", "name": "Nylocas Vasilias", "icon": "🕷️", "cat": "ToB", "wiki_name": "Nylocas Vasilias", "desc": "Third boss of Theatre of Blood — switches weaknesses", "tip": "Switch protection prayer when it changes colour: white=Melee, blue=Magic, green=Ranged.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "White Phase", "detail": "Pray Melee when white", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Blue Phase", "detail": "Pray Magic when blue", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Green Phase", "detail": "Pray Ranged when green", "prayer": "PROTECT_RANGED" }] },
-    { "id": "sotetseg", "name": "Sotetseg", "icon": "🎯", "cat": "ToB", "wiki_name": "Sotetseg", "desc": "Fourth boss of Theatre of Blood", "tip": "Pray Melee. Dodge the red/black ball — if it hits you it's reflected to your partner.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee Swipe", "detail": "Primary attack", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Magic Ball", "detail": "Redirect mechanic", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "xarpus", "name": "Xarpus", "icon": "🦇", "cat": "ToB", "wiki_name": "Xarpus", "desc": "Fifth boss of Theatre of Blood", "tip": "During exhumed phase focus on the skeletons. Final phase: watch his eyes to dodge the sweep.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Acid Spray", "detail": "Poison pools on ground", "prayer": "PROTECT_MAGIC" }, { "type": "melee", "icon": "⚔️", "name": "Eye Sweep", "detail": "Final phase rotation attack", "prayer": "PROTECT_MELEE", "phase": "Final" }] },
-    { "id": "verzik", "name": "Verzik Vitur", "icon": "👑", "cat": "ToB", "wiki_name": "Verzik Vitur", "desc": "Final boss of Theatre of Blood — three phases", "tip": "P1: Melee. P2: Ranged primary, dodge green ball. P3: all three styles, watch carefully.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "P1 Smash", "detail": "Phase 1 only", "prayer": "PROTECT_MELEE", "phase": "P1" }, { "type": "ranged", "icon": "🏹", "name": "Web Bolt", "detail": "Phase 2 primary", "prayer": "PROTECT_RANGED", "phase": "P2" }, { "type": "magic", "icon": "🔵", "name": "Green Orb", "detail": "Explodes on player", "prayer": "PROTECT_MAGIC", "phase": "P2-3" }] },
-    { "id": "akkha", "name": "Akkha", "icon": "👁️", "cat": "ToA", "wiki_name": "Akkha", "desc": "Tombs of Amascut — memory guardian", "tip": "Pray opposite to his attack style. He telegraphs switches. Watch for shadow mechanics.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee Strike", "detail": "Melee phase", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Magic Bolt", "detail": "Magic phase", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Ranged Shot", "detail": "Ranged phase", "prayer": "PROTECT_RANGED" }] },
-    { "id": "kephri", "name": "Kephri", "icon": "🪲", "cat": "ToA", "wiki_name": "Kephri", "desc": "Tombs of Amascut — scarab guardian", "tip": "Protect from Magic. Focus on the dung spawns to prevent them overrunning you.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Scarab Bolt", "detail": "Primary magic attack", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Bomb Drop", "detail": "Scarab bomb phase", "prayer": "PROTECT_RANGED", "phase": "Bombs" }] },
-    { "id": "zebak", "name": "Zebak", "icon": "🐊", "cat": "ToA", "wiki_name": "Zebak", "desc": "Tombs of Amascut — crocodile guardian", "tip": "Protect from Ranged. Dodge blood and water waves.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Blood Barrage", "detail": "Primary attack", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Water Wave", "detail": "AoE wave mechanic", "prayer": "PROTECT_MAGIC", "phase": "Wave" }] },
-    { "id": "baba", "name": "Ba-Ba", "icon": "🦍", "cat": "ToA", "wiki_name": "Ba-Ba", "desc": "Tombs of Amascut — baboon guardian", "tip": "Protect from Melee. Dodge boulders and rolling balls.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Slam", "detail": "Primary melee attack", "prayer": "PROTECT_MELEE" }, { "type": "ranged", "icon": "🏹", "name": "Boulder Toss", "detail": "Dodge the rocks", "prayer": "PROTECT_RANGED", "phase": "Boulder" }] },
-    { "id": "warden", "name": "Elidinis' Warden", "icon": "🏛️", "cat": "ToA", "wiki_name": "Elidinis' Warden", "desc": "Final boss of Tombs of Amascut", "tip": "P2: Dodge obelisk energy. P3: Pray all styles in sequence. Down the core when exposed.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Obelisk Shot", "detail": "Primary ranged", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Lightning", "detail": "Magic AoE", "prayer": "PROTECT_MAGIC" }, { "type": "melee", "icon": "⚔️", "name": "Core Slam", "detail": "P3 melee", "prayer": "PROTECT_MELEE", "phase": "P3" }] },
-    { "id": "abyssal_sire", "name": "Abyssal Sire", "icon": "👾", "cat": "Slayer Boss", "wiki_name": "Abyssal Sire", "desc": "Abyssal demon Slayer boss — requires 85 Slayer", "tip": "Pray Ranged during the first phase attacks. Stun the vents before attacking. Dodge tentacles in the second phase.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Tentacle Lash", "detail": "Primary ranged attack", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Shadow Smoke", "detail": "Magic AoE attack", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "grotesque", "name": "Grotesque Guardians", "icon": "🗿", "cat": "Slayer Boss", "wiki_name": "Grotesque Guardians", "desc": "Gargoyle boss on the Slayer Tower rooftop", "tip": "Dusk uses Melee and Magic; switch accordingly. During Dawn's flight phase, protect Ranged.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Dusk Smash", "detail": "Primary melee", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Dusk Zap", "detail": "Magic lightning", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Dawn Crystals", "detail": "Ranged crystal shards", "prayer": "PROTECT_RANGED", "phase": "Dawn" }] },
-    { "id": "kraken", "name": "Kraken", "icon": "🦑", "cat": "Slayer Boss", "wiki_name": "Kraken", "desc": "Cave Kraken boss — requires 87 Slayer", "tip": "Magic only fight — no prayer needed for protection. Bring high Magic attack gear.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Ink Spray", "detail": "Magic-only attack", "prayer": "NONE" }] },
-    { "id": "basilisk_knight", "name": "Basilisk Knight", "icon": "🐍", "cat": "Slayer Boss", "wiki_name": "Basilisk Knight", "desc": "Basilisk boss in the Fremennik Slayer Dungeon", "tip": "Wear a Mirror shield or V's shield or you'll take heavy damage. It uses Melee and Ranged.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Stone Gaze", "detail": "Melee petrify — need shield", "prayer": "PROTECT_MELEE" }, { "type": "ranged", "icon": "🏹", "name": "Ranged Bite", "detail": "Ranged attack", "prayer": "PROTECT_RANGED" }] },
-    { "id": "skotizo", "name": "Skotizo", "icon": "😈", "cat": "Slayer Boss", "wiki_name": "Skotizo", "desc": "Demonic boss accessed via Dark Totem", "tip": "Protect from Melee. Disable the altars around the room or they'll heal him and spawn demons.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Claw Swipe", "detail": "Primary melee", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Shadow Bolt", "detail": "Magic from altars", "prayer": "PROTECT_MAGIC", "phase": "Altars" }] },
-    { "id": "sarachnis", "name": "Sarachnis", "icon": "🕷️", "cat": "Boss", "wiki_name": "Sarachnis", "desc": "Spider boss in the Forthos Dungeon", "tip": "Protect from Melee. Dodge the web she throws — it stuns you. Her spawns can heal her.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Spider Strike", "detail": "Primary attack", "prayer": "PROTECT_MELEE" }, { "type": "ranged", "icon": "🏹", "name": "Web Throw", "detail": "Stuns the player", "prayer": "PROTECT_RANGED", "phase": "Web" }] },
-    { "id": "gauntlet", "name": "Crystalline Hunllef", "icon": "💎", "cat": "Boss", "wiki_name": "Crystalline Hunllef", "desc": "Final boss of The Gauntlet", "tip": "Switches between Magic and Ranged every 4 attacks. Watch the colour of projectiles and switch accordingly.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Crystal Magic", "detail": "Blue orb", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Crystal Ranged", "detail": "Green projectile", "prayer": "PROTECT_RANGED" }, { "type": "melee", "icon": "⚔️", "name": "Stomp", "detail": "If you stand under it", "prayer": "PROTECT_MELEE", "phase": "Adjacent" }] },
-    { "id": "phantom_muspah", "name": "Phantom Muspah", "icon": "🌀", "cat": "Boss", "wiki_name": "Phantom Muspah", "desc": "Post-Mahjarrat Ritual boss", "tip": "It cycles through forms. Watch the colour: Ranged form = spiky, Magic form = orb, Melee form = close.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Ranged Form", "detail": "Spiky form", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Magic Form", "detail": "Orb form", "prayer": "PROTECT_MAGIC" }, { "type": "melee", "icon": "⚔️", "name": "Melee Form", "detail": "Close form", "prayer": "PROTECT_MELEE" }] },
-    { "id": "duke_sucellus", "name": "Duke Sucellus", "icon": "🦇", "cat": "Boss", "wiki_name": "Duke Sucellus", "desc": "One of the four Desert Treasure II bosses", "tip": "Pray Melee for most of the fight. Dodge the poison pools.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Claw Strike", "detail": "Primary melee", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Venom Spit", "detail": "Poison magic", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "leviathan", "name": "The Leviathan", "icon": "🐋", "cat": "Boss", "wiki_name": "The Leviathan", "desc": "Ancient sea creature boss — Desert Treasure II", "tip": "Cycles between Ranged and Magic. Watch projectile colours. Dodge the boulders.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Boulder Barrage", "detail": "Ranged boulders", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Electric Blast", "detail": "Lightning magic", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "whisperer", "name": "The Whisperer", "icon": "👁️", "cat": "Boss", "wiki_name": "The Whisperer", "desc": "Ancient shadow boss — Desert Treasure II", "tip": "Pray Ranged most of the fight. Interact with the shadows during the special phase.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Shadow Tendrils", "detail": "Primary ranged", "prayer": "PROTECT_RANGED" }, { "type": "magic", "icon": "🔵", "name": "Void Bolt", "detail": "Magic attack", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "vardorvis", "name": "Vardorvis", "icon": "🪓", "cat": "Boss", "wiki_name": "Vardorvis", "desc": "Decapitated zealot boss — Desert Treasure II", "tip": "Pray Melee. Dodge the axes that fly across the arena — they follow a fixed pattern.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Axe Swipe", "detail": "Primary melee", "prayer": "PROTECT_MELEE" }, { "type": "ranged", "icon": "🏹", "name": "Spike Throw", "detail": "Ranged spikes", "prayer": "PROTECT_RANGED", "phase": "Spikes" }] },
-    { "id": "kalphite_queen", "name": "Kalphite Queen", "icon": "🦂", "cat": "Boss", "wiki_name": "Kalphite Queen", "desc": "Dual-phase boss under the Kalphite Lair", "tip": "Phase 1: Protect from Ranged. Phase 2 (fly): Protect from Magic. She switches phases.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "P1 Ranged", "detail": "Ground phase", "prayer": "PROTECT_RANGED", "phase": "P1" }, { "type": "magic", "icon": "🔵", "name": "P2 Magic", "detail": "Flying phase", "prayer": "PROTECT_MAGIC", "phase": "P2" }] },
-    { "id": "dag_prime", "name": "Dagannoth Prime", "icon": "🔵", "cat": "Boss", "wiki_name": "Dagannoth Prime", "desc": "Dagannoth King — Magic only", "tip": "Pray Magic. Prime only uses Magic attacks. Use Ranged to kill him.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Magic Bolt", "detail": "Magic-only", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "dag_rex", "name": "Dagannoth Rex", "icon": "⚔️", "cat": "Boss", "wiki_name": "Dagannoth Rex", "desc": "Dagannoth King — Melee only", "tip": "Pray Melee. Rex only uses Melee. Use Magic to kill him.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee Charge", "detail": "Melee-only", "prayer": "PROTECT_MELEE" }] },
-    { "id": "dag_supreme", "name": "Dagannoth Supreme", "icon": "🏹", "cat": "Boss", "wiki_name": "Dagannoth Supreme", "desc": "Dagannoth King — Ranged only", "tip": "Pray Ranged. Supreme only uses Ranged. Use Melee to kill him.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Spine Shot", "detail": "Ranged-only", "prayer": "PROTECT_RANGED" }] },
-    { "id": "abyssal_demon", "name": "Abyssal Demon", "icon": "👿", "cat": "Slayer", "wiki_name": "Abyssal demon", "desc": "Level 85 Slayer — drops Abyssal whip", "tip": "No need to pray. They teleport you short distances. Use Melee.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee + Teleport", "detail": "Teleports you on hit", "prayer": "NONE" }] },
-    { "id": "greater_demon", "name": "Greater Demon", "icon": "😤", "cat": "Slayer", "wiki_name": "Greater demon", "desc": "Common Slayer/combat task", "tip": "No prayer needed with good stats. Pray Melee if taking damage.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Standard melee", "prayer": "NONE" }] },
-    { "id": "black_demon", "name": "Black Demon", "icon": "😡", "cat": "Slayer", "wiki_name": "Black demon", "desc": "Stronger demon Slayer task", "tip": "Can pray Melee to reduce damage significantly.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "High melee damage", "prayer": "PROTECT_MELEE" }] },
-    { "id": "hellhound", "name": "Hellhound", "icon": "🐾", "cat": "Slayer", "wiki_name": "Hellhound", "desc": "Level 91 Slayer task monster", "tip": "Melee only. Protect from Melee for longer trips or use Piety.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Melee-only", "prayer": "NONE" }] },
-    { "id": "bloodveld", "name": "Bloodveld", "icon": "🩸", "cat": "Slayer", "wiki_name": "Bloodveld", "desc": "Level 50 Slayer — uses Magic-based melee", "tip": "Their attacks are Magic-based so Magic defence gear helps, but no prayer needed.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Tongue Lash", "detail": "Magic-based melee", "prayer": "NONE" }] },
-    { "id": "nechryael", "name": "Nechryael", "icon": "💀", "cat": "Slayer", "wiki_name": "Nechryael", "desc": "Level 80 Slayer — drops Dragon boots", "tip": "Melee only. Death spawns are annoying — kill them quickly.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Claw Swipe", "detail": "Melee + spawns death imps", "prayer": "NONE" }] },
-    { "id": "dust_devil", "name": "Dust Devil", "icon": "🌪️", "cat": "Slayer", "wiki_name": "Dust devil", "desc": "Level 65 Slayer — drops Dragon chainbody", "tip": "Magic-based attacks. High Magic defence gear helps. No prayer typically needed.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Dust Cloud", "detail": "Magic-based ranged", "prayer": "NONE" }] },
-    { "id": "skeletal_wyvern", "name": "Skeletal Wyvern", "icon": "🦴", "cat": "Slayer", "wiki_name": "Skeletal Wyvern", "desc": "Level 72 Slayer — icy breath attack", "tip": "Must use an elemental or mind shield or take massive icy breath damage. Pray Melee.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Standard melee", "prayer": "PROTECT_MELEE" }, { "type": "ranged", "icon": "🏹", "name": "Icy Breath", "detail": "Freezes and damages — need shield", "prayer": "PROTECT_RANGED" }] },
-    { "id": "gargoyle", "name": "Gargoyle", "icon": "🗿", "cat": "Slayer", "wiki_name": "Gargoyle", "desc": "Level 75 Slayer — must finish with Rock hammer", "tip": "Melee only. Remember to use Rock hammer or granite hammer to finish them off.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Melee-only", "prayer": "NONE" }] },
-    { "id": "cave_horror", "name": "Cave Horror", "icon": "🦇", "cat": "Slayer", "wiki_name": "Cave horror", "desc": "Level 58 Slayer — drops Black mask", "tip": "Wear a witchwood icon or take heavy damage. Melee only.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Melee — wear witchwood icon", "prayer": "NONE" }] },
-    { "id": "dark_beast", "name": "Dark Beast", "icon": "🐺", "cat": "Slayer", "wiki_name": "Dark beast", "desc": "Level 90 Slayer — drops Dark bow", "tip": "Uses both Melee and Ranged. Pray Ranged — their ranged hits are more frequent.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Shadow Bolt", "detail": "Frequent ranged attack", "prayer": "PROTECT_RANGED" }, { "type": "melee", "icon": "⚔️", "name": "Melee Swipe", "detail": "In close range", "prayer": "PROTECT_MELEE" }] },
-    { "id": "wyrm", "name": "Wyrm", "icon": "🐛", "cat": "Slayer", "wiki_name": "Wyrm", "desc": "Level 62 Slayer — in Mount Karuulm", "tip": "Uses both Melee and Magic. Pray Magic for longer trips.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Toxic Spit", "detail": "Magic attack", "prayer": "PROTECT_MAGIC" }, { "type": "melee", "icon": "⚔️", "name": "Tail Swipe", "detail": "Melee in close range", "prayer": "PROTECT_MELEE" }] },
-    { "id": "drake", "name": "Drake", "icon": "🦎", "cat": "Slayer", "wiki_name": "Drake", "desc": "Level 84 Slayer — in Mount Karuulm", "tip": "Uses Melee and Ranged. Pray Melee for trips or Ranged if safer.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Bite", "detail": "High melee hit", "prayer": "PROTECT_MELEE" }, { "type": "ranged", "icon": "🏹", "name": "Fireball", "detail": "Ranged fire", "prayer": "PROTECT_RANGED" }] },
-    { "id": "wyvern", "name": "Wyvern", "icon": "🐉", "cat": "Slayer", "wiki_name": "Wyvern", "desc": "Level 66 Slayer — in Wyvern Cave", "tip": "Use an elemental shield. Pray Ranged — icy breath is the dangerous attack.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Icy Breath", "detail": "Freezes — need shield", "prayer": "PROTECT_RANGED" }, { "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Standard melee", "prayer": "PROTECT_MELEE" }] },
-    { "id": "basilisk", "name": "Basilisk", "icon": "🐍", "cat": "Slayer", "wiki_name": "Basilisk", "desc": "Level 40 Slayer — needs Mirror shield", "tip": "Wear a Mirror shield or V's shield to avoid being petrified.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Stone Gaze", "detail": "Petrify — need mirror shield", "prayer": "PROTECT_MELEE" }] },
-    { "id": "spiritual_mage", "name": "Spiritual Mage", "icon": "🔮", "cat": "Slayer", "wiki_name": "Spiritual mage", "desc": "GWD Slayer monster — drops Arcane prayer scroll", "tip": "Pray Melee — they hit hard in melee. Magic attacks are less common.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Staff Strike", "detail": "High melee hit", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Magic Bolt", "detail": "Occasional magic", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "black_dragon", "name": "Black Dragon", "icon": "🐲", "cat": "Slayer", "wiki_name": "Black dragon", "desc": "Requires antifire protection", "tip": "Use antifire potion and shield. Pray Melee inside their cave.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Standard melee", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Dragonfire", "detail": "Need antifire — magic breath", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "fire_giant", "name": "Fire Giant", "icon": "🔥", "cat": "Slayer", "wiki_name": "Fire giant", "desc": "Common Slayer task — good exp", "tip": "Protect from Melee for sustained trips. Good prayer exp with Piety.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "High melee hits", "prayer": "PROTECT_MELEE" }] },
-    { "id": "iron_dragon", "name": "Iron Dragon", "icon": "🐉", "cat": "Slayer", "wiki_name": "Iron dragon", "desc": "Level 74 Slayer — uses dragonfire", "tip": "Antifire needed. Pray Melee or range from a distance.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Standard melee", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Dragonfire", "detail": "Use antifire pot", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "steel_dragon", "name": "Steel Dragon", "icon": "🐉", "cat": "Slayer", "wiki_name": "Steel dragon", "desc": "Level 74 Slayer — strong dragonfire", "tip": "Stronger dragonfire than iron. Antifire + protect if struggling.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Strong melee", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Dragonfire", "detail": "Stronger breath — use antifire", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "mithril_dragon", "name": "Mithril Dragon", "icon": "🐉", "cat": "Slayer", "wiki_name": "Mithril dragon", "desc": "Level 68 Slayer (for task) — Ancient Cavern", "tip": "All three dragonfire types. Antifire essential. Pray Melee in melee range.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Melee", "detail": "Melee in close range", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Magic Dragonfire", "detail": "Antifire needed", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Ranged Dragonfire", "detail": "Ranged breath", "prayer": "PROTECT_RANGED" }] },
-    { "id": "demonic_gorilla", "name": "Demonic Gorilla", "icon": "🦍", "cat": "Slayer", "wiki_name": "Demonic gorilla", "desc": "After Monkey Madness II — switches prayers", "tip": "They switch attack styles when you use the wrong prayer. Always swap prayer to counter their current style.", "attacks": [{ "type": "melee", "icon": "⚔️", "name": "Gorilla Smash", "detail": "Switches to counter your prayer", "prayer": "PROTECT_MELEE" }, { "type": "magic", "icon": "🔵", "name": "Magic Bolt", "detail": "Switches styles if you don't swap", "prayer": "PROTECT_MAGIC" }, { "type": "ranged", "icon": "🏹", "name": "Boulder Throw", "detail": "Ranged attack", "prayer": "PROTECT_RANGED" }] },
-    { "id": "lizardman_shaman", "name": "Lizardman Shaman", "icon": "🦎", "cat": "Slayer", "wiki_name": "Lizardman shaman", "desc": "Raids-adjacent Slayer task — drops Draconic visage", "tip": "Pray Ranged — their jump attack is the most dangerous. Dodge the spawned spawns.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Spit Attack", "detail": "Ranged spit", "prayer": "PROTECT_RANGED" }, { "type": "melee", "icon": "⚔️", "name": "Melee Jump", "detail": "Jumps on player", "prayer": "PROTECT_MELEE", "phase": "Jump" }] },
-    { "id": "waterfiend", "name": "Waterfiend", "icon": "💧", "cat": "Slayer", "wiki_name": "Waterfiend", "desc": "Level 75 Slayer — Ancient Cavern", "tip": "Pray Ranged — they throw boulders frequently. Weak to crush attacks.", "attacks": [{ "type": "ranged", "icon": "🏹", "name": "Boulder Throw", "detail": "Ranged boulders", "prayer": "PROTECT_RANGED" }] },
-    { "id": "mutated_bloodveld", "name": "Mutated Bloodveld", "icon": "🩸", "cat": "Slayer", "wiki_name": "Mutated Bloodveld", "desc": "Stronger bloodveld in Catacombs/GWD2", "tip": "Magic-based attacks — high Magic defence helps. Catacombs version hits harder.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Tongue Lash", "detail": "Magic-based melee", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "infernal_mage", "name": "Infernal Mage", "icon": "🔥", "cat": "Slayer", "wiki_name": "Infernal Mage", "desc": "Level 45 Slayer — Slayer Tower", "tip": "Pray Magic — they hit accurately with fire spells.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Fire Bolt", "detail": "Magic fire attack", "prayer": "PROTECT_MAGIC" }] },
-    { "id": "cave_kraken", "name": "Cave Kraken", "icon": "🦑", "cat": "Slayer", "wiki_name": "Cave kraken", "desc": "Level 87 Slayer — drops Kraken tentacle", "tip": "Magic only — no protection prayer needed.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Ink Spray", "detail": "Magic-only", "prayer": "NONE" }] },
-    { "id": "fungal_mage", "name": "Fungal Mage", "icon": "🍄", "cat": "Slayer", "wiki_name": "Fungal mage", "desc": "Level 57 Slayer — Polypore Dungeon", "tip": "Pray Magic — hits hard with spells.", "attacks": [{ "type": "magic", "icon": "🔵", "name": "Fungal Bolt", "detail": "Magic attack", "prayer": "PROTECT_MAGIC" }] }
+    {
+      "id": "zulrah",
+      "name": "Zulrah",
+      "icon": "🐍",
+      "cat": "Boss",
+      "wiki_name": "Zulrah",
+      "desc": "Serpent of the shrine — rotates styles by phase",
+      "tip": "Learn the rotation. You'll mostly alternate between Magic and Ranged protection each phase.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Toxic Venom Cloud",
+          "detail": "Green phase",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Ranged Serpentine",
+          "detail": "Red phase",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Bite",
+          "detail": "Only if adjacent",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Adjacent"
+        }
+      ]
+    },
+    {
+      "id": "cerberus",
+      "name": "Cerberus",
+      "icon": "🐕",
+      "cat": "Boss",
+      "wiki_name": "Cerberus",
+      "desc": "Three-headed hellhound guardian of the River of Souls",
+      "tip": "Attacks in a fixed order: Magic → Ranged → Melee. Switch to Redemption when ghosts appear.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Lava Breath",
+          "detail": "First in triple sequence",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Lightning Bolt",
+          "detail": "Second in sequence",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Triple Bite",
+          "detail": "Third in sequence",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Cycle 3"
+        }
+      ]
+    },
+    {
+      "id": "vorkath",
+      "name": "Vorkath",
+      "icon": "🐉",
+      "cat": "Boss",
+      "wiki_name": "Vorkath",
+      "desc": "Undead dragon of Ungael — rapid ranged dragonfire",
+      "tip": "Mostly Ranged. During Zombified Spawn switch to Melee and run figure-eight. Dodge acid pools.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Dragon Breath",
+          "detail": "Primary — rapid ranged",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Venom/Ice Breath",
+          "detail": "Special breath attacks",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Zombified Spawn",
+          "detail": "Switch to Melee prayer",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Special"
+        }
+      ]
+    },
+    {
+      "id": "hydra",
+      "name": "Alchemical Hydra",
+      "icon": "🦎",
+      "cat": "Boss",
+      "wiki_name": "Alchemical Hydra",
+      "desc": "Slayer boss of Mount Karuulm — switches attack styles",
+      "tip": "Alternates Magic and Ranged every few attacks. Stand on vents. Switch prayer when it changes stance.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Venom Spray",
+          "detail": "Magic phase",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Hydra Spittle",
+          "detail": "Ranged phase",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "nightmare",
+      "name": "The Nightmare",
+      "icon": "🌙",
+      "cat": "Boss",
+      "wiki_name": "The Nightmare",
+      "desc": "Ancient parasite in the Sisterhood Sanctuary",
+      "tip": "Uses all three styles. Watch animations carefully to switch prayer. She can put you to sleep.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Tendrils Swipe",
+          "detail": "Arm swing",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Nightmare Bolt",
+          "detail": "Sparkling orb",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Curse Darts",
+          "detail": "Shadowy darts",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "corp",
+      "name": "Corporeal Beast",
+      "icon": "👁️",
+      "cat": "Boss",
+      "wiki_name": "Corporeal Beast",
+      "desc": "Only melee weapons deal full damage",
+      "tip": "Pray Melee — it hits harder than the magic special. Use a spear.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Stomp / Swipe",
+          "detail": "Primary high damage",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Dark Energy",
+          "detail": "Drains prayer & stats",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "kbd",
+      "name": "King Black Dragon",
+      "icon": "🐲",
+      "cat": "Boss",
+      "wiki_name": "King Black Dragon",
+      "desc": "Legendary three-headed dragon of the wilderness",
+      "tip": "Antifire pot + Protect from Magic fully negates magic dragonfire.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Magic Dragonfire",
+          "detail": "Most common breath",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Ranged Dragonfire",
+          "detail": "Freezing/poison breath",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Claw Swipe",
+          "detail": "In melee range",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "bandos",
+      "name": "General Graardor",
+      "icon": "🪖",
+      "cat": "GWD",
+      "wiki_name": "General Graardor",
+      "desc": "Bandos's general — God Wars Dungeon",
+      "tip": "Pray Melee — his melee hits are far stronger than the ranged throws.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Stomp / Punch",
+          "detail": "Primary — very high damage",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Throwing Boulder",
+          "detail": "Less frequent",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "zammy",
+      "name": "K'ril Tsutsaroth",
+      "icon": "😈",
+      "cat": "GWD",
+      "wiki_name": "K'ril Tsutsaroth",
+      "desc": "Zamorak's general — God Wars Dungeon",
+      "tip": "Always Protect from Melee — his melee drains your prayer on hit.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Godsword Slash",
+          "detail": "Primary — drains prayer",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Demonic Blast",
+          "detail": "Occasional magic",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "saradomin",
+      "name": "Commander Zilyana",
+      "icon": "⚔️",
+      "cat": "GWD",
+      "wiki_name": "Commander Zilyana",
+      "desc": "Saradomin's champion — God Wars Dungeon",
+      "tip": "She's very fast. Protect from Magic and keep moving to avoid melee.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Holy Bolt",
+          "detail": "Primary ranged strike",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Saradomin Sword",
+          "detail": "If she reaches you",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Close"
+        }
+      ]
+    },
+    {
+      "id": "kreearra",
+      "name": "Kree'arra",
+      "icon": "🦅",
+      "cat": "GWD",
+      "wiki_name": "Kree'arra",
+      "desc": "Armadyl's champion — God Wars Dungeon",
+      "tip": "Primarily Ranged. Stay off melee range to avoid wing buffet.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Wind Wave",
+          "detail": "Primary attack",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Arcane Blast",
+          "detail": "Alternate attack",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Wing Buffet",
+          "detail": "Only if adjacent",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Adjacent"
+        }
+      ]
+    },
+    {
+      "id": "nex",
+      "name": "Nex",
+      "icon": "🧊",
+      "cat": "GWD",
+      "wiki_name": "Nex",
+      "desc": "Ancient Prison boss — four phases",
+      "tip": "Each phase has a different weakness. Pray Ranged during most phases; switch per mechanic.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Ice Barrage",
+          "detail": "Primary throughout",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Smoke/Shadow/Blood/Ice",
+          "detail": "Phase special attacks",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Claw Swipe",
+          "detail": "In melee range",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Close"
+        }
+      ]
+    },
+    {
+      "id": "ahrim",
+      "name": "Ahrim the Blighted",
+      "icon": "👻",
+      "cat": "Barrows",
+      "wiki_name": "Ahrim the Blighted",
+      "desc": "Mage brother — drains stats on hit",
+      "tip": "Magic only. High Magic defence gear recommended.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Ahrim's Staff",
+          "detail": "Magic-only",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "karil",
+      "name": "Karil the Tainted",
+      "icon": "💀",
+      "cat": "Barrows",
+      "wiki_name": "Karil the Tainted",
+      "desc": "Ranger brother — drains Agility",
+      "tip": "Ranged only. Protect from Missiles the whole fight.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Karil's Crossbow",
+          "detail": "Ranged-only",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "dharok",
+      "name": "Dharok the Wretched",
+      "icon": "🪓",
+      "cat": "Barrows",
+      "wiki_name": "Dharok the Wretched",
+      "desc": "Melee brother — hits harder at low HP",
+      "tip": "Protect from Melee. Keep him high HP or he'll one-hit you.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Dharok's Greataxe",
+          "detail": "Harder at low HP",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "guthan",
+      "name": "Guthan the Infested",
+      "icon": "🪱",
+      "cat": "Barrows",
+      "wiki_name": "Guthan the Infested",
+      "desc": "Melee brother — heals on hit",
+      "tip": "Protect from Melee. He heals himself so kill quickly.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Guthan's Warspear",
+          "detail": "Heals on hit",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "verac",
+      "name": "Verac the Defiled",
+      "icon": "🛡️",
+      "cat": "Barrows",
+      "wiki_name": "Verac the Defiled",
+      "desc": "Melee brother — can hit through prayer",
+      "tip": "Protect from Melee still reduces damage. His set effect can hit through prayer occasionally.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Verac's Flail",
+          "detail": "Can hit through prayer",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "torag",
+      "name": "Torag the Corrupted",
+      "icon": "🔨",
+      "cat": "Barrows",
+      "wiki_name": "Torag the Corrupted",
+      "desc": "Melee brother — drains run energy",
+      "tip": "Protect from Melee. Relatively straightforward fight.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Torag's Hammers",
+          "detail": "Drains run energy",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "maiden",
+      "name": "The Maiden of Sugadinti",
+      "icon": "🩸",
+      "cat": "ToB",
+      "wiki_name": "The Maiden of Sugadinti",
+      "desc": "First boss of Theatre of Blood",
+      "tip": "Magic only. Kill Blood Spawns before they reach her or she heals.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Blood Attack",
+          "detail": "Magic-only",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "bloat",
+      "name": "Pestilent Bloat",
+      "icon": "🪲",
+      "cat": "ToB",
+      "wiki_name": "Pestilent Bloat",
+      "desc": "Second boss of Theatre of Blood",
+      "tip": "Hide under it when it stops walking. Avoid falling flies.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Stomp",
+          "detail": "Melee stomp",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "nylocas",
+      "name": "Nylocas Vasilias",
+      "icon": "🕷️",
+      "cat": "ToB",
+      "wiki_name": "Nylocas Vasilias",
+      "desc": "Third boss of Theatre of Blood — switches weaknesses",
+      "tip": "Switch protection prayer when it changes colour: white=Melee, blue=Magic, green=Ranged.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "White Phase",
+          "detail": "Pray Melee when white",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Blue Phase",
+          "detail": "Pray Magic when blue",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Green Phase",
+          "detail": "Pray Ranged when green",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "sotetseg",
+      "name": "Sotetseg",
+      "icon": "🎯",
+      "cat": "ToB",
+      "wiki_name": "Sotetseg",
+      "desc": "Fourth boss of Theatre of Blood",
+      "tip": "Pray Melee. Dodge the red/black ball — if it hits you it's reflected to your partner.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Swipe",
+          "detail": "Primary attack",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Magic Ball",
+          "detail": "Redirect mechanic",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "xarpus",
+      "name": "Xarpus",
+      "icon": "🦇",
+      "cat": "ToB",
+      "wiki_name": "Xarpus",
+      "desc": "Fifth boss of Theatre of Blood",
+      "tip": "During exhumed phase focus on the skeletons. Final phase: watch his eyes to dodge the sweep.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Acid Spray",
+          "detail": "Poison pools on ground",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Eye Sweep",
+          "detail": "Final phase rotation attack",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Final"
+        }
+      ]
+    },
+    {
+      "id": "verzik",
+      "name": "Verzik Vitur",
+      "icon": "👑",
+      "cat": "ToB",
+      "wiki_name": "Verzik Vitur",
+      "desc": "Final boss of Theatre of Blood — three phases",
+      "tip": "P1: Melee. P2: Ranged primary, dodge green ball. P3: all three styles, watch carefully.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "P1 Smash",
+          "detail": "Phase 1 only",
+          "prayer": "PROTECT_MELEE",
+          "phase": "P1"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Web Bolt",
+          "detail": "Phase 2 primary",
+          "prayer": "PROTECT_RANGED",
+          "phase": "P2"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Green Orb",
+          "detail": "Explodes on player",
+          "prayer": "PROTECT_MAGIC",
+          "phase": "P2-3"
+        }
+      ]
+    },
+    {
+      "id": "akkha",
+      "name": "Akkha",
+      "icon": "👁️",
+      "cat": "ToA",
+      "wiki_name": "Akkha",
+      "desc": "Tombs of Amascut — memory guardian",
+      "tip": "Pray opposite to his attack style. He telegraphs switches. Watch for shadow mechanics.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Strike",
+          "detail": "Melee phase",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Magic Bolt",
+          "detail": "Magic phase",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Ranged Shot",
+          "detail": "Ranged phase",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "kephri",
+      "name": "Kephri",
+      "icon": "🪲",
+      "cat": "ToA",
+      "wiki_name": "Kephri",
+      "desc": "Tombs of Amascut — scarab guardian",
+      "tip": "Protect from Magic. Focus on the dung spawns to prevent them overrunning you.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Scarab Bolt",
+          "detail": "Primary magic attack",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Bomb Drop",
+          "detail": "Scarab bomb phase",
+          "prayer": "PROTECT_RANGED",
+          "phase": "Bombs"
+        }
+      ]
+    },
+    {
+      "id": "zebak",
+      "name": "Zebak",
+      "icon": "🐊",
+      "cat": "ToA",
+      "wiki_name": "Zebak",
+      "desc": "Tombs of Amascut — crocodile guardian",
+      "tip": "Protect from Ranged. Dodge blood and water waves.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Attack",
+          "detail": "Added by wiki scraper — update detail manually",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Blood Barrage",
+          "detail": "Primary attack",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Water Wave",
+          "detail": "AoE wave mechanic",
+          "prayer": "PROTECT_MAGIC",
+          "phase": "Wave"
+        }
+      ]
+    },
+    {
+      "id": "baba",
+      "name": "Ba-Ba",
+      "icon": "🦍",
+      "cat": "ToA",
+      "wiki_name": "Ba-Ba",
+      "desc": "Tombs of Amascut — baboon guardian",
+      "tip": "Protect from Melee. Dodge boulders and rolling balls.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Slam",
+          "detail": "Primary melee attack",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Boulder Toss",
+          "detail": "Dodge the rocks",
+          "prayer": "PROTECT_RANGED",
+          "phase": "Boulder"
+        }
+      ]
+    },
+    {
+      "id": "warden",
+      "name": "Elidinis' Warden",
+      "icon": "🏛️",
+      "cat": "ToA",
+      "wiki_name": "Elidinis' Warden",
+      "desc": "Final boss of Tombs of Amascut",
+      "tip": "P2: Dodge obelisk energy. P3: Pray all styles in sequence. Down the core when exposed.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Obelisk Shot",
+          "detail": "Primary ranged",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Lightning",
+          "detail": "Magic AoE",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Core Slam",
+          "detail": "P3 melee",
+          "prayer": "PROTECT_MELEE",
+          "phase": "P3"
+        }
+      ]
+    },
+    {
+      "id": "abyssal_sire",
+      "name": "Abyssal Sire",
+      "icon": "👾",
+      "cat": "Slayer Boss",
+      "wiki_name": "Abyssal Sire",
+      "desc": "Abyssal demon Slayer boss — requires 85 Slayer",
+      "tip": "Pray Ranged during the first phase attacks. Stun the vents before attacking. Dodge tentacles in the second phase.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Tentacle Lash",
+          "detail": "Primary ranged attack",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Shadow Smoke",
+          "detail": "Magic AoE attack",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "grotesque",
+      "name": "Grotesque Guardians",
+      "icon": "🗿",
+      "cat": "Slayer Boss",
+      "wiki_name": "Grotesque Guardians",
+      "desc": "Gargoyle boss on the Slayer Tower rooftop",
+      "tip": "Dusk uses Melee and Magic; switch accordingly. During Dawn's flight phase, protect Ranged.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Dusk Smash",
+          "detail": "Primary melee",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Dusk Zap",
+          "detail": "Magic lightning",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Dawn Crystals",
+          "detail": "Ranged crystal shards",
+          "prayer": "PROTECT_RANGED",
+          "phase": "Dawn"
+        }
+      ]
+    },
+    {
+      "id": "kraken",
+      "name": "Kraken",
+      "icon": "🦑",
+      "cat": "Slayer Boss",
+      "wiki_name": "Kraken",
+      "desc": "Cave Kraken boss — requires 87 Slayer",
+      "tip": "Magic only fight — no prayer needed for protection. Bring high Magic attack gear.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Ink Spray",
+          "detail": "Magic-only attack",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "basilisk_knight",
+      "name": "Basilisk Knight",
+      "icon": "🐍",
+      "cat": "Slayer Boss",
+      "wiki_name": "Basilisk Knight",
+      "desc": "Basilisk boss in the Fremennik Slayer Dungeon",
+      "tip": "Wear a Mirror shield or V's shield or you'll take heavy damage. It uses Melee and Ranged.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Stone Gaze",
+          "detail": "Melee petrify — need shield",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Ranged Bite",
+          "detail": "Ranged attack",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "skotizo",
+      "name": "Skotizo",
+      "icon": "😈",
+      "cat": "Slayer Boss",
+      "wiki_name": "Skotizo",
+      "desc": "Demonic boss accessed via Dark Totem",
+      "tip": "Protect from Melee. Disable the altars around the room or they'll heal him and spawn demons.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Claw Swipe",
+          "detail": "Primary melee",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Shadow Bolt",
+          "detail": "Magic from altars",
+          "prayer": "PROTECT_MAGIC",
+          "phase": "Altars"
+        }
+      ]
+    },
+    {
+      "id": "sarachnis",
+      "name": "Sarachnis",
+      "icon": "🕷️",
+      "cat": "Boss",
+      "wiki_name": "Sarachnis",
+      "desc": "Spider boss in the Forthos Dungeon",
+      "tip": "Protect from Melee. Dodge the web she throws — it stuns you. Her spawns can heal her.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Spider Strike",
+          "detail": "Primary attack",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Web Throw",
+          "detail": "Stuns the player",
+          "prayer": "PROTECT_RANGED",
+          "phase": "Web"
+        }
+      ]
+    },
+    {
+      "id": "gauntlet",
+      "name": "Crystalline Hunllef",
+      "icon": "💎",
+      "cat": "Boss",
+      "wiki_name": "Crystalline Hunllef",
+      "desc": "Final boss of The Gauntlet",
+      "tip": "Switches between Magic and Ranged every 4 attacks. Watch the colour of projectiles and switch accordingly.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Crystal Magic",
+          "detail": "Blue orb",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Crystal Ranged",
+          "detail": "Green projectile",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Stomp",
+          "detail": "If you stand under it",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Adjacent"
+        }
+      ]
+    },
+    {
+      "id": "phantom_muspah",
+      "name": "Phantom Muspah",
+      "icon": "🌀",
+      "cat": "Boss",
+      "wiki_name": "Phantom Muspah",
+      "desc": "Post-Mahjarrat Ritual boss",
+      "tip": "It cycles through forms. Watch the colour: Ranged form = spiky, Magic form = orb, Melee form = close.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Ranged Form",
+          "detail": "Spiky form",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Magic Form",
+          "detail": "Orb form",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Form",
+          "detail": "Close form",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "duke_sucellus",
+      "name": "Duke Sucellus",
+      "icon": "🦇",
+      "cat": "Boss",
+      "wiki_name": "Duke Sucellus",
+      "desc": "One of the four Desert Treasure II bosses",
+      "tip": "Pray Melee for most of the fight. Dodge the poison pools.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Claw Strike",
+          "detail": "Primary melee",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Venom Spit",
+          "detail": "Poison magic",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "leviathan",
+      "name": "The Leviathan",
+      "icon": "🐋",
+      "cat": "Boss",
+      "wiki_name": "The Leviathan",
+      "desc": "Ancient sea creature boss — Desert Treasure II",
+      "tip": "Cycles between Ranged and Magic. Watch projectile colours. Dodge the boulders.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Attack",
+          "detail": "Added by wiki scraper — update detail manually",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Boulder Barrage",
+          "detail": "Ranged boulders",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Electric Blast",
+          "detail": "Lightning magic",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "whisperer",
+      "name": "The Whisperer",
+      "icon": "👁️",
+      "cat": "Boss",
+      "wiki_name": "The Whisperer",
+      "desc": "Ancient shadow boss — Desert Treasure II",
+      "tip": "Pray Ranged most of the fight. Interact with the shadows during the special phase.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Shadow Tendrils",
+          "detail": "Primary ranged",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Void Bolt",
+          "detail": "Magic attack",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "vardorvis",
+      "name": "Vardorvis",
+      "icon": "🪓",
+      "cat": "Boss",
+      "wiki_name": "Vardorvis",
+      "desc": "Decapitated zealot boss — Desert Treasure II",
+      "tip": "Pray Melee. Dodge the axes that fly across the arena — they follow a fixed pattern.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Axe Swipe",
+          "detail": "Primary melee",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Spike Throw",
+          "detail": "Ranged spikes",
+          "prayer": "PROTECT_RANGED",
+          "phase": "Spikes"
+        }
+      ]
+    },
+    {
+      "id": "kalphite_queen",
+      "name": "Kalphite Queen",
+      "icon": "🦂",
+      "cat": "Boss",
+      "wiki_name": "Kalphite Queen",
+      "desc": "Dual-phase boss under the Kalphite Lair",
+      "tip": "Phase 1: Protect from Ranged. Phase 2 (fly): Protect from Magic. She switches phases.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "P1 Ranged",
+          "detail": "Ground phase",
+          "prayer": "PROTECT_RANGED",
+          "phase": "P1"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "P2 Magic",
+          "detail": "Flying phase",
+          "prayer": "PROTECT_MAGIC",
+          "phase": "P2"
+        }
+      ]
+    },
+    {
+      "id": "dag_prime",
+      "name": "Dagannoth Prime",
+      "icon": "🔵",
+      "cat": "Boss",
+      "wiki_name": "Dagannoth Prime",
+      "desc": "Dagannoth King — Magic only",
+      "tip": "Pray Magic. Prime only uses Magic attacks. Use Ranged to kill him.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Magic Bolt",
+          "detail": "Magic-only",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "dag_rex",
+      "name": "Dagannoth Rex",
+      "icon": "⚔️",
+      "cat": "Boss",
+      "wiki_name": "Dagannoth Rex",
+      "desc": "Dagannoth King — Melee only",
+      "tip": "Pray Melee. Rex only uses Melee. Use Magic to kill him.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Charge",
+          "detail": "Melee-only",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "dag_supreme",
+      "name": "Dagannoth Supreme",
+      "icon": "🏹",
+      "cat": "Boss",
+      "wiki_name": "Dagannoth Supreme",
+      "desc": "Dagannoth King — Ranged only",
+      "tip": "Pray Ranged. Supreme only uses Ranged. Use Melee to kill him.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Spine Shot",
+          "detail": "Ranged-only",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "abyssal_demon",
+      "name": "Abyssal Demon",
+      "icon": "👿",
+      "cat": "Slayer",
+      "wiki_name": "Abyssal demon",
+      "desc": "Level 85 Slayer — drops Abyssal whip",
+      "tip": "No need to pray. They teleport you short distances. Use Melee.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee + Teleport",
+          "detail": "Teleports you on hit",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "greater_demon",
+      "name": "Greater Demon",
+      "icon": "😤",
+      "cat": "Slayer",
+      "wiki_name": "Greater demon",
+      "desc": "Common Slayer/combat task",
+      "tip": "No prayer needed with good stats. Pray Melee if taking damage.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Standard melee",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "black_demon",
+      "name": "Black Demon",
+      "icon": "😡",
+      "cat": "Slayer",
+      "wiki_name": "Black demon",
+      "desc": "Stronger demon Slayer task",
+      "tip": "Can pray Melee to reduce damage significantly.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "High melee damage",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "hellhound",
+      "name": "Hellhound",
+      "icon": "🐾",
+      "cat": "Slayer",
+      "wiki_name": "Hellhound",
+      "desc": "Level 91 Slayer task monster",
+      "tip": "Melee only. Protect from Melee for longer trips or use Piety.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Melee-only",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "bloodveld",
+      "name": "Bloodveld",
+      "icon": "🩸",
+      "cat": "Slayer",
+      "wiki_name": "Bloodveld",
+      "desc": "Level 50 Slayer — uses Magic-based melee",
+      "tip": "Their attacks are Magic-based so Magic defence gear helps, but no prayer needed.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Tongue Lash",
+          "detail": "Magic-based melee",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "nechryael",
+      "name": "Nechryael",
+      "icon": "💀",
+      "cat": "Slayer",
+      "wiki_name": "Nechryael",
+      "desc": "Level 80 Slayer — drops Dragon boots",
+      "tip": "Melee only. Death spawns are annoying — kill them quickly.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Claw Swipe",
+          "detail": "Melee + spawns death imps",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "dust_devil",
+      "name": "Dust Devil",
+      "icon": "🌪️",
+      "cat": "Slayer",
+      "wiki_name": "Dust devil",
+      "desc": "Level 65 Slayer — drops Dragon chainbody",
+      "tip": "Magic-based attacks. High Magic defence gear helps. No prayer typically needed.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Dust Cloud",
+          "detail": "Magic-based ranged",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "skeletal_wyvern",
+      "name": "Skeletal Wyvern",
+      "icon": "🦴",
+      "cat": "Slayer",
+      "wiki_name": "Skeletal Wyvern",
+      "desc": "Level 72 Slayer — icy breath attack",
+      "tip": "Must use an elemental or mind shield or take massive icy breath damage. Pray Melee.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Standard melee",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Icy Breath",
+          "detail": "Freezes and damages — need shield",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "gargoyle",
+      "name": "Gargoyle",
+      "icon": "🗿",
+      "cat": "Slayer",
+      "wiki_name": "Gargoyle",
+      "desc": "Level 75 Slayer — must finish with Rock hammer",
+      "tip": "Melee only. Remember to use Rock hammer or granite hammer to finish them off.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Melee-only",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "cave_horror",
+      "name": "Cave Horror",
+      "icon": "🦇",
+      "cat": "Slayer",
+      "wiki_name": "Cave horror",
+      "desc": "Level 58 Slayer — drops Black mask",
+      "tip": "Wear a witchwood icon or take heavy damage. Melee only.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Melee — wear witchwood icon",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "dark_beast",
+      "name": "Dark Beast",
+      "icon": "🐺",
+      "cat": "Slayer",
+      "wiki_name": "Dark beast",
+      "desc": "Level 90 Slayer — drops Dark bow",
+      "tip": "Uses both Melee and Ranged. Pray Ranged — their ranged hits are more frequent.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Shadow Bolt",
+          "detail": "Frequent ranged attack",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Swipe",
+          "detail": "In close range",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "wyrm",
+      "name": "Wyrm",
+      "icon": "🐛",
+      "cat": "Slayer",
+      "wiki_name": "Wyrm",
+      "desc": "Level 62 Slayer — in Mount Karuulm",
+      "tip": "Uses both Melee and Magic. Pray Magic for longer trips.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Toxic Spit",
+          "detail": "Magic attack",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Tail Swipe",
+          "detail": "Melee in close range",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "drake",
+      "name": "Drake",
+      "icon": "🦎",
+      "cat": "Slayer",
+      "wiki_name": "Drake",
+      "desc": "Level 84 Slayer — in Mount Karuulm",
+      "tip": "Uses Melee and Ranged. Pray Melee for trips or Ranged if safer.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Bite",
+          "detail": "High melee hit",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Fireball",
+          "detail": "Ranged fire",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "wyvern",
+      "name": "Wyvern",
+      "icon": "🐉",
+      "cat": "Slayer",
+      "wiki_name": "Wyvern",
+      "desc": "Level 66 Slayer — in Wyvern Cave",
+      "tip": "Use an elemental shield. Pray Ranged — icy breath is the dangerous attack.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Icy Breath",
+          "detail": "Freezes — need shield",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Standard melee",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "basilisk",
+      "name": "Basilisk",
+      "icon": "🐍",
+      "cat": "Slayer",
+      "wiki_name": "Basilisk",
+      "desc": "Level 40 Slayer — needs Mirror shield",
+      "tip": "Wear a Mirror shield or V's shield to avoid being petrified.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Stone Gaze",
+          "detail": "Petrify — need mirror shield",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "spiritual_mage",
+      "name": "Spiritual Mage",
+      "icon": "🔮",
+      "cat": "Slayer",
+      "wiki_name": "Spiritual mage",
+      "desc": "GWD Slayer monster — drops Arcane prayer scroll",
+      "tip": "Pray Melee — they hit hard in melee. Magic attacks are less common.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Staff Strike",
+          "detail": "High melee hit",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Magic Bolt",
+          "detail": "Occasional magic",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "black_dragon",
+      "name": "Black Dragon",
+      "icon": "🐲",
+      "cat": "Slayer",
+      "wiki_name": "Black dragon",
+      "desc": "Requires antifire protection",
+      "tip": "Use antifire potion and shield. Pray Melee inside their cave.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Standard melee",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Dragonfire",
+          "detail": "Need antifire — magic breath",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "fire_giant",
+      "name": "Fire Giant",
+      "icon": "🔥",
+      "cat": "Slayer",
+      "wiki_name": "Fire giant",
+      "desc": "Common Slayer task — good exp",
+      "tip": "Protect from Melee for sustained trips. Good prayer exp with Piety.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "High melee hits",
+          "prayer": "PROTECT_MELEE"
+        }
+      ]
+    },
+    {
+      "id": "iron_dragon",
+      "name": "Iron Dragon",
+      "icon": "🐉",
+      "cat": "Slayer",
+      "wiki_name": "Iron dragon",
+      "desc": "Level 74 Slayer — uses dragonfire",
+      "tip": "Antifire needed. Pray Melee or range from a distance.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Standard melee",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Dragonfire",
+          "detail": "Use antifire pot",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "steel_dragon",
+      "name": "Steel Dragon",
+      "icon": "🐉",
+      "cat": "Slayer",
+      "wiki_name": "Steel dragon",
+      "desc": "Level 74 Slayer — strong dragonfire",
+      "tip": "Stronger dragonfire than iron. Antifire + protect if struggling.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Strong melee",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Dragonfire",
+          "detail": "Stronger breath — use antifire",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "mithril_dragon",
+      "name": "Mithril Dragon",
+      "icon": "🐉",
+      "cat": "Slayer",
+      "wiki_name": "Mithril dragon",
+      "desc": "Level 68 Slayer (for task) — Ancient Cavern",
+      "tip": "All three dragonfire types. Antifire essential. Pray Melee in melee range.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee",
+          "detail": "Melee in close range",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Magic Dragonfire",
+          "detail": "Antifire needed",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Ranged Dragonfire",
+          "detail": "Ranged breath",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "demonic_gorilla",
+      "name": "Demonic Gorilla",
+      "icon": "🦍",
+      "cat": "Slayer",
+      "wiki_name": "Demonic gorilla",
+      "desc": "After Monkey Madness II — switches prayers",
+      "tip": "They switch attack styles when you use the wrong prayer. Always swap prayer to counter their current style.",
+      "attacks": [
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Gorilla Smash",
+          "detail": "Switches to counter your prayer",
+          "prayer": "PROTECT_MELEE"
+        },
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Magic Bolt",
+          "detail": "Switches styles if you don't swap",
+          "prayer": "PROTECT_MAGIC"
+        },
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Boulder Throw",
+          "detail": "Ranged attack",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "lizardman_shaman",
+      "name": "Lizardman Shaman",
+      "icon": "🦎",
+      "cat": "Slayer",
+      "wiki_name": "Lizardman shaman",
+      "desc": "Raids-adjacent Slayer task — drops Draconic visage",
+      "tip": "Pray Ranged — their jump attack is the most dangerous. Dodge the spawned spawns.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Spit Attack",
+          "detail": "Ranged spit",
+          "prayer": "PROTECT_RANGED"
+        },
+        {
+          "type": "melee",
+          "icon": "⚔️",
+          "name": "Melee Jump",
+          "detail": "Jumps on player",
+          "prayer": "PROTECT_MELEE",
+          "phase": "Jump"
+        }
+      ]
+    },
+    {
+      "id": "waterfiend",
+      "name": "Waterfiend",
+      "icon": "💧",
+      "cat": "Slayer",
+      "wiki_name": "Waterfiend",
+      "desc": "Level 75 Slayer — Ancient Cavern",
+      "tip": "Pray Ranged — they throw boulders frequently. Weak to crush attacks.",
+      "attacks": [
+        {
+          "type": "ranged",
+          "icon": "🏹",
+          "name": "Boulder Throw",
+          "detail": "Ranged boulders",
+          "prayer": "PROTECT_RANGED"
+        }
+      ]
+    },
+    {
+      "id": "mutated_bloodveld",
+      "name": "Mutated Bloodveld",
+      "icon": "🩸",
+      "cat": "Slayer",
+      "wiki_name": "Mutated Bloodveld",
+      "desc": "Stronger bloodveld in Catacombs/GWD2",
+      "tip": "Magic-based attacks — high Magic defence helps. Catacombs version hits harder.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Tongue Lash",
+          "detail": "Magic-based melee",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "infernal_mage",
+      "name": "Infernal Mage",
+      "icon": "🔥",
+      "cat": "Slayer",
+      "wiki_name": "Infernal Mage",
+      "desc": "Level 45 Slayer — Slayer Tower",
+      "tip": "Pray Magic — they hit accurately with fire spells.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Fire Bolt",
+          "detail": "Magic fire attack",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    },
+    {
+      "id": "cave_kraken",
+      "name": "Cave Kraken",
+      "icon": "🦑",
+      "cat": "Slayer",
+      "wiki_name": "Cave kraken",
+      "desc": "Level 87 Slayer — drops Kraken tentacle",
+      "tip": "Magic only — no protection prayer needed.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Ink Spray",
+          "detail": "Magic-only",
+          "prayer": "NONE"
+        }
+      ]
+    },
+    {
+      "id": "fungal_mage",
+      "name": "Fungal Mage",
+      "icon": "🍄",
+      "cat": "Slayer",
+      "wiki_name": "Fungal mage",
+      "desc": "Level 57 Slayer — Polypore Dungeon",
+      "tip": "Pray Magic — hits hard with spells.",
+      "attacks": [
+        {
+          "type": "magic",
+          "icon": "🔵",
+          "name": "Fungal Bolt",
+          "detail": "Magic attack",
+          "prayer": "PROTECT_MAGIC"
+        }
+      ]
+    }
   ]
 }
